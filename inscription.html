@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MKTech - Inscription Formation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background: linear-gradient(90deg, #0d47a1, #1565c0);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background: #0b3c91;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #bbdefb;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0d47a1;
+        }
+
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #0d47a1;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1565c0;
+        }
+
+        footer {
+            background: #0b3c91;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        .success {
+            display: none;
+            background: #e8f5e9;
+            color: green;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>MKTech</h1>
+    <p>Centre Professionnel de Formation Informatique</p>
+    <p>Directeur : Emmanuel Mbamba | Kinshasa</p>
+</header>
+
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="formation.html">Formations</a>
+    <a href="inscription.html">Inscription</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="container">
+    <h2>Formulaire d'Inscription</h2>
+
+    <div class="form-box">
+            <form id="inscriptionForm">
+            <label>Nom complet</label>
+            <input type="text" required>
+
+            <label>Email</label>
+            <input type="email" required>
+
+            <label>Téléphone</label>
+            <input type="tel" required>
+
+            <label>Choisir une formation</label>
+            <select required>
+                <option value="">-- Sélectionner --</option>
+                <option>Développement Web & Applications</option>
+                <option>Administration Réseau & Télécom</option>
+                <option>Gestion des Entreprises Publiques</option>
+                <option>Base de Données</option>
+                <option>Cybersécurité</option>
+                <option>Maintenance Informatique</option>
+            </select>
+
+            <label>Message (optionnel)</label>
+            <textarea rows="4"></textarea>
+
+            <button type="submit">Envoyer l'inscription</button>
+            <div class="success" id="successMessage">
+            ✅ Inscription envoyée avec succès !
+        </div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 MKTech - Tous droits réservés</p>
+</footer>
+
+<script>
+    const form = document.getElementById("inscriptionForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+        successMessage.style.display = "block";
+        form.reset();
+    });
+</script>
+
+</body>
+</html>

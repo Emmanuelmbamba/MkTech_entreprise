@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MKTechSolutions SARL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        header {
+            background: #0d1b2a;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #00b4d8;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url(ResourcePHOTO/ryan-yao-BDvCewlnbD8-unsplash.jpg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #00b4d8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 60px 50px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #f4f4f4;
+            padding: 20px;
+            width: 30%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #0d1b2a;
+        }
+
+        .about {
+            background: #e9ecef;
+        }
+
+        .contact form {
+            max-width: 500px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #0d1b2a;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #0d1b2a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .services {
+                flex-direction: column;
+            }
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>MKTechSolutions SARL</h1>
+    <nav>
+        <a href="#home">Accueil</a>
+        <a href="mycv.html">MyCV</a>
+        <a href="formation.html">Services</a>
+        <a href="#about">À propos</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div>
+        <h2>Solutions Informatiques & Réseaux Professionnelles</h2>
+        <p>Nous accompagnons votre entreprise vers la transformation digitale.</p>
+        <br>
+        <a href="contact.html" class="btn">Nous Contacter</a>
+    </div>
+</section>
+
+<section id="services">
+    <h2>Nos Services</h2>
+    <br>
+    <div class="services">
+        <div class="card">
+            <h3>Administration Réseau</h3>
+            <p>Installation et configuration LAN, WAN, routeurs et switch Cisco.</p>
+        </div>
+
+        <div class="card">
+            <h3>Développement Web</h3>
+            <p>Création de sites web modernes et applications web professionnelles.</p>
+        </div>
+
+        <div class="card">
+            <h3>Maintenance Informatique</h3>
+            <p>Support technique et maintenance des équipements informatiques.</p>
+        </div>
+         <div class="card">
+            <h3>Nos Formations</h3>
+            <p>IT Network et Systeme.</p>
+            <p>Reseau informatiques.</p>
+            <p>Transmission Télécom.</p>
+            <p>Cybersécurité.</p>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2>À propos de nous</h2>
+    <br>
+    <p>
+        MKTechSolutions SARL est une entreprise spécialisée en réseaux,
+        télécommunications et développement web. Nous aidons les entreprises
+        à améliorer leurs infrastructures technologiques et leur présence digitale.
+    </p>
+         <div class="card">
+            <h3>Nos Formations</h3>
+            <p>IT Network et Systeme.</p>
+            <p>Reseau informatiques.</p>
+            <p>Transmission Télécom.</p>
+            <p>Cybersécurité.</p>
+        </div>
+</section>
+<div >
+emmanuel mbamba est un informaticien
+</div>
+
+<section class="contact" id="contact">
+    <h2>Contactez-nous</h2>
+    <br>
+    <form onsubmit="return envoyerMessage()">
+        <input type="text" placeholder="Votre nom" required>
+        <input type="email" placeholder="Votre email" required>
+        <textarea rows="5" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 MKTechSolutions SARL - Tous droits réservés
+</footer>
+
+<script>
+    function envoyerMessage() {
+        alert("Message envoyé avec succès !");
+        return false;
+    }
+</script>
+
+</body>
+</html>

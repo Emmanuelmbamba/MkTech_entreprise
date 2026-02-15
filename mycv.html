@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV - Emmanuel MBAMBA KIZIKU</title>
+
+<style>
+
+/* ================== GLOBAL ================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    display:flex;
+    justify-content:center;
+    padding:20px;
+}
+
+/* ================== CONTAINER ================== */
+.container{
+    width:100%;
+    max-width:1100px;
+    background:white;
+    display:flex;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    border-radius:10px;
+    overflow:hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ================== LEFT SIDE ================== */
+.left{
+    width:35%;
+    background:linear-gradient(180deg,#1f3c66,#142a47);
+    color:white;
+    padding:25px;
+}
+
+.profile img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.profile img:hover{
+    transform:scale(1.05);
+}
+
+.section{
+    margin-bottom:25px;
+}
+
+.section h2{
+    font-size:18px;
+    margin-bottom:10px;
+    border-bottom:1px solid rgba(255,255,255,0.3);
+    padding-bottom:5px;
+}
+
+.section ul{
+    margin-left:18px;
+}
+
+.section ul li{
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+.section p{
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+/* ================== RIGHT SIDE ================== */
+.right{
+    width:65%;
+    padding:35px;
+}
+
+.header h1{
+    font-size:30px;
+    color:#1f3c66;
+}
+
+.header h3{
+    margin:8px 0;
+    color:#444;
+}
+
+.header p{
+    margin-top:10px;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.content h2{
+    margin-top:30px;
+    color:#1f3c66;
+    border-bottom:2px solid #1f3c66;
+    padding-bottom:5px;
+}
+
+.content h3{
+    margin-top:15px;
+    color:#333;
+}
+
+.content ul{
+    margin-left:20px;
+    margin-top:5px;
+}
+
+.content ul li{
+    margin-bottom:6px;
+    font-size:14px;
+}
+
+/* ================== BUTTON ================== */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 18px;
+    background:#1f3c66;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#142a47;
+    transform:translateY(-3px);
+}
+
+/* ================== ANIMATION ================== */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ================== RESPONSIVE ================== */
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+    }
+    .left, .right{
+        width:100%;
+    }
+}
+
+/* ================== PRINT STYLE ================== */
+@media print{
+    body{
+        background:white;
+    }
+    .btn{
+        display:none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+
+        <div class="profile">
+            <img src="ResourcePHOTO/profile.jpg" alt="Photo">
+        </div>
+
+        <div class="section">
+            <h2>Informations personnelles</h2>
+            <p><strong>Etat civil:</strong> Marié</p>
+            <p><strong>Date de naissance:</strong> 12 Juillet 1989</p>
+            <p><strong>Adresse:</strong> Kinshasa, RDC</p>
+            <p><strong>Téléphone:</strong><br>
+            +243818451340<br>
+            +243997300932</p>
+            <p><strong>Email:</strong><br>
+            Emmanuel.mbamba87@gmail.com</p>
+             <p><strong>Email:</strong><br>
+            Emmanuel.mbamba@unikin.ac.cd</p>
+        </div>
+
+        <div class="section">
+            <h2>Compétences</h2>
+            <ul>
+                <li>Transmission Microwave</li>
+                <li>Computer Network & Cyber Security</li>
+                <li>Incident Management</li>
+                <li>Data Analysis</li>
+                <li>Leadership</li>
+                <li>Java, C#, C</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Langues</h2>
+            <ul>
+                <li>Français - Natif</li>
+                <li>Anglais - B1</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Reférence</h2>
+            <ul>
+                <li>Jeremy BILALA, Manager Transmission Engineer, Tel: +243 999967531, Huawei RDC. 
+(Jeremy.bilala.ndulu@huawei-partners.com)</li>
+                <li>Prof. Dr Jean-PEPE BUANGA, Tel : +243 978 689 548, Universitéé de Kinshasa</li>
+                <li>Lumière KABADI, Electronic Solution Manager, Tel : +243 81 444 44 29, Vodacom 
+RDC (Lumiere.kabadi@vodacom.cd)
+</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <div class="header">
+            <h1>Emmanuel MBAMBA KIZIKU</h1>
+            <h2>Expert en Transmission Telecom & IT</h2>
+            <p>
+                Je suis un expert en réseau télécom et cybersécurité avec plus de 4 ans d'expérience en transmission 
+radio. J'ai une solide expérience de la configuration de routeurs, configuration de commutateurs, la 
+gestion d'incidents et de la résolution de problèmes techniques. Je suis également un excellent 
+transmettant de micro-ondes, capable de travailler efficacement en équipe et de présenter des idées 
+complexes de manière claire et concise.
+            </p>
+
+            <a href="#" class="btn" onclick="window.print()">Télécharger en PDF</a>
+             <a href="index.html" class="btn" onclick="">Accueil</a>
+             <a href="formation.html" class="btn" onclick="">Service</a>
+             <a href="contact.html" class="btn" onclick="">Contact</a>
+             <a href="inscription.html" class="btn" onclick="">Inscription</a>
+        </div>
+
+        <div class="content">
+
+            <h2>Expérience Professionnelle</h2>
+
+            <h3>BackOffice Transmission Engineer, Huawei/ MS Airtel DRC DRC /RTN 
+/Ericsson TN /Ceragon IP20</h3>
+            <p><strong>2022 - Aujourd'hui</strong></p>
+            <ul>
+                <li>Configuration des sites micro-ondes</li>
+                <li>Analyse et dépannage d'incidents</li>
+                <li>Management network</li>
+                <li>Planification & design de sites</li>
+                <li>Rapport et documentation</li>
+            </ul>
+
+            <h2>Research , University de Kinshasa</h2>
+            <p><strong>2018 - Aujourd'hui</strong></p>
+            <p><strong>Domaines de Récherches</strong></p>
+            <ul>
+                <li>Architecture téléinformatique</li>
+                <li>Sécurité cyber-sécurité & cryptographie</li>
+                <li>Systeme et cloud</li>
+            </ul>
+
+            <h2>Electronic Distribution Market Specialist Assistant, Vodacom DRC/Bensizwe</h2>
+            <p><strong>2017 - 2018</strong></p>
+            <p><strong>Responsabilités principales</strong></p>
+            <ul>
+                <li>Résoudre tous les problèmes électroniques et incidents techniques dans un délai maximum de 24 heures</li>
+                <li>Fournir une assistance technique au marché concernant l’utilisation des systèmes électroniques fournis par Vodacom, notamment : EVC, UVC, CMS, Dealer Web, SP Onboarding</li>
+                <li>Assurer le support de premier niveau (1st Level Support) aux utilisateurs</li>
+                <li>Effectuer le suivi, le reporting et la résolution des incidents techniques</li>
+                <li>Escalader les problèmes complexes vers le support de niveau supérieur si nécessaire</li>
+            </ul>
+
+            <h2>Education</h2>
+            <ul>
+                <li>Licencé en Génie Informatique, Université de Kinshasa, RDC, Année 
+d’obtention : 2017. Mathématiques et informatique - UNIKIN (2017)</li>
+                <li>Gradué en Informatique, Université de Kinshasa, Kinshasa, RDC, Année 
+d’obtention : 2015. Mathématiques et informatique</li>
+                <li>tention : 2015. Mathématiques et informatique.
+• Diplôme d’État / Électronique ITP Mwanda, Kinshasa, RDC, Année 
+d’obtention : 2010</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
