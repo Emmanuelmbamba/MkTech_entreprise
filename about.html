@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKTech SARL - Excellence Digitale</title>
+<title>À propos - MKTech SARL-</title>
 
 <style>
 *{
@@ -18,17 +18,13 @@ body{
     color:#333;
 }
 
-/* NAVIGATION */
+/* NAVBAR */
 nav{
-    position:fixed;
-    width:100%;
+    background:#0f0f0f;
     padding:20px 60px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-    z-index:1000;
 }
 
 nav h2{
@@ -46,30 +42,25 @@ nav ul li a{
     color:white;
     text-decoration:none;
     font-weight:500;
-    transition:0.3s;
 }
 
 nav ul li a:hover{
-    color:#4da3ff;
+    color:#bbdefb;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
-    height:100vh;
-    background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("https://images.unsplash.com/photo-1498050108023-c5249f4df085");
+    background:linear-gradient(rgba(165, 162, 189, 0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
     background-size:cover;
     background-position:center;
+    height:60vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
     color:white;
+    text-align:center;
     padding:20px;
-}
-
-.hero-content{
-    animation:fadeIn 2s ease;
 }
 
 .hero h1{
@@ -163,7 +154,7 @@ footer{
 
 @media(max-width:768px){
     .hero h1{
-        font-size:35px;
+        font-size:30px;
     }
 }
 </style>
@@ -174,7 +165,7 @@ footer{
 <nav>
     <h2>MKTech SARL</h2>
     <ul>
-        <li><a href="#home">Accueil</a></li>
+       <li><a href="index.html">Accueil</a></li>
         <li><a href="solutions.html">Solutions</a></li>
         <li><a href="formation.html">Formations</a></li>
         <li><a href="service.html">Services</a></li>
@@ -185,40 +176,47 @@ footer{
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Transformation Digitale Internationale</h1>
-        <p>MKTech accompagne les entreprises publiques et privées vers l'excellence technologique.</p>
-       <a href="service.html"> <button class="btn">Découvrir nos services</button></a>
-    </div>
+    <h1>À propos de MKTech SARL-</h1>
 </section>
 
 <section class="section">
-    <h2>Pourquoi Choisir MKTech ?</h2>
+    <h2>Notre Mission</h2>
     <p>
-        Basé à Kinshasa, MKTech développe des solutions numériques modernes 
-        et offre des formations professionnelles conformes aux standards internationaux.
+        MKTech a pour mission d'accompagner la transformation digitale 
+        des entreprises publiques et privées en République Démocratique du Congo 
+        grâce à des solutions technologiques innovantes et des formations de haut niveau.
     </p>
 
     <div class="cards">
         <div class="card">
-            <h3>Innovation</h3>
-            <p>Technologies modernes adaptées aux réalités africaines.</p>
+            <h3>Vision</h3>
+            <p>Devenir un acteur majeur de la modernisation numérique en Afrique.</p>
         </div>
 
         <div class="card">
-            <h3>Performance</h3>
-            <p>Solutions efficaces pour entreprises publiques et privées.</p>
+            <h3>Valeurs</h3>
+            <p>Innovation, Excellence, Intégrité et Performance.</p>
         </div>
 
         <div class="card">
-            <h3>Expertise</h3>
-            <p>Formations avancées en développement, réseau et cybersécurité.</p>
+            <h3>Engagement</h3>
+            <p>Offrir des services conformes aux standards internationaux.</p>
         </div>
     </div>
 </section>
 
+<section class="director">
+    <h2>Mot du Directeur</h2>
+    <p>
+        Sous la direction de <strong>Emmanuel Mbamba</strong>, MKTech 
+        s'engage à développer des compétences numériques solides 
+        et à proposer des solutions adaptées aux réalités locales 
+        tout en respectant les standards internationaux.
+    </p>
+</section>
+
 <footer>
-    <p>&copy; 2026 MKTech SARL- Excellence Digitale Internationale</p>
+    <p>&copy; 2026 MKTech - Excellence Digitale Internationale</p>
 </footer>
 
 </body>
