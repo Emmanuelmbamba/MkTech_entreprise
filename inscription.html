@@ -4,114 +4,24 @@
     <meta charset="UTF-8">
     <title>MKTech - Inscription Formation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f4f6f9;
-        }
-
-        header {
-            background: linear-gradient(90deg, #595e64, #ccdbec);
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-
-        nav {
-            background: #151516;
-            padding: 12px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #bbdefb;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 50px 20px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #0d47a1;
-        }
-
-        .form-box {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-top: 30px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0 20px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background: #0d47a1;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #1565c0;
-        }
-
-        footer {
-            background: #0b3c91;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-        }
-
-        .success {
-            display: none;
-            background: #e8f5e9;
-            color: green;
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="styleMenuMob.css">
+<link rel="stylesheet" href="styleinscription.css">
 </head>
 
 <body>
-<nav>
-        <a href="index.html">Accueil</a>
-        <a href="solutions.html">Solutions</a>
-        <a href="formation.html">Formations</a>
-        <a href="service.html">Services</a>
-        <a href="about.html">A Propos</a>
-        <a href="contact.html">Contact</a>
-        <a href="mycv.html">MyCV</a>
-</nav>
-
+<nav class="navbar">
+    <div class="logo">MkTech SARL</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul class="menu" id="menu">
+       <li><a href="index.html">Accueil</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="formation.html">Formations</a></li>
+        <li><a href="#inscription.html">inscription</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+<script src="javascrptMenus.js"></script>
 <header>
     <h1>MKTech</h1>
     <p>Centre Professionnel de Formation Informatique</p>
@@ -156,7 +66,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 MKTech - Tous droits réservés</p>
+    <p>&copy; 2026 MKTech SARL- Excellence Digitale Internationale</p>
 </footer>
 
 <script>

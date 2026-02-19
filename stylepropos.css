@@ -9,37 +9,6 @@ body{
     background:#f5f7fa;
     color:#333;
 }
-
-/* NAVBAR */
-nav{
-    background:#0f0f0f;
-    padding:20px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-nav h2{
-    color:white;
-    letter-spacing:2px;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:30px;
-}
-
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-}
-
-nav ul li a:hover{
-    color:#bbdefb;
-}
-
 /* HERO */
 .hero{
     background:linear-gradient(rgba(165, 162, 189, 0.6), rgba(0,0,0,0.6)),
@@ -130,6 +99,37 @@ nav ul li a:hover{
     margin-bottom:15px;
 }
 
+.director{
+    background: linear-gradient(135deg,#1f3c66, #142a47);
+    padding: 40px 30px;
+    border-radius: 12px;
+    color: white;
+    margin: 30px 0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.director:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+.director h2::after{
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #00c6ff;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    border-radius: 5px;
+}
+.director p{
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-top: 20px;
+    max-width: 600px;
+}
 /* FOOTER */
 footer{
     background:#0d47a1;

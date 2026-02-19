@@ -10,24 +10,6 @@
             padding: 25px;
             text-align: center;
         }
-
-        nav {
-            background: #18191a;
-            padding: 12px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #bbdefb;
-        }
-
         .hero {
             background: linear-gradient(rgba(87, 93, 100, 0.85), rgba(73, 97, 133, 0.85)),
             url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');

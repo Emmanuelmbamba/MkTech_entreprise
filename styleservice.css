@@ -76,6 +76,22 @@ header h1{
     transform:translateY(-12px);
 }
 
+.btn{
+    padding:15px 35px;
+    background:#1565c0;
+    border:none;
+    color:white;
+    font-size:16px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.btn:hover{
+    background:white;
+    color:#1565c0;
+    transform:scale(1.05);
+}
 .service-card::before{
     content:"";
     position:absolute;
