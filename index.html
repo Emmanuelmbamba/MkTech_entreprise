@@ -4,177 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MKTech SARL - Excellence Digitale</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Segoe UI', sans-serif;
-    background:#f5f7fa;
-    color:#333;
-}
-
-/* NAVIGATION */
-nav{
-    position:fixed;
-    width:100%;
-    padding:20px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-    z-index:1000;
-}
-
-nav h2{
-    color:white;
-    letter-spacing:2px;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:30px;
-}
-
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#4da3ff;
-}
-
-/* HERO SECTION */
-.hero{
-    height:100vh;
-    background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("https://images.unsplash.com/photo-1498050108023-c5249f4df085");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    padding:20px;
-}
-
-.hero-content{
-    animation:fadeIn 2s ease;
-}
-
-.hero h1{
-    font-size:55px;
-    margin-bottom:20px;
-    letter-spacing:3px;
-}
-
-.hero p{
-    font-size:20px;
-    margin-bottom:30px;
-    opacity:0.9;
-}
-
-.btn{
-    padding:15px 35px;
-    background:#1565c0;
-    border:none;
-    color:white;
-    font-size:16px;
-    border-radius:30px;
-    cursor:pointer;
-    transition:0.4s;
-}
-
-.btn:hover{
-    background:white;
-    color:#1565c0;
-    transform:scale(1.05);
-}
-
-/* SECTION CORPORATE */
-.section{
-    padding:100px 60px;
-    text-align:center;
-}
-
-.section h2{
-    font-size:35px;
-    margin-bottom:20px;
-    color:#1565c0;
-}
-
-.section p{
-    max-width:800px;
-    margin:auto;
-    font-size:18px;
-    line-height:1.6;
-}
-
-/* CARDS */
-.cards{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    margin-top:50px;
-    flex-wrap:wrap;
-}
-
-.card{
-    background:white;
-    padding:40px;
-    border-radius:15px;
-    width:300px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.1);
-    transition:0.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card h3{
-    color:#1565c0;
-    margin-bottom:15px;
-}
-
-/* FOOTER */
-footer{
-    background:#0d47a1;
-    color:white;
-    text-align:center;
-    padding:30px;
-}
-
-/* ANIMATION */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-@media(max-width:768px){
-    .hero h1{
-        font-size:35px;
-    }
-}
-</style>
+<link rel="stylesheet" href="styleMenuMobile.css">
+<link rel="stylesheet" href="styleindex.css">
 </head>
 
 <body>
-
 <nav>
-    <h2>MKTech SARL</h2>
-    <ul>
-        <li><a href="#home">Accueil</a></li>
+    <div class="logo">MkTech SARL</div>
+
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+  <ul class="menu">
+         <li><a href="#home">Accueil</a></li>
         <li><a href="solutions.html">Solutions</a></li>
         <li><a href="formation.html">Formations</a></li>
         <li><a href="service.html">Services</a></li>
@@ -183,6 +29,7 @@ footer{
         <li><a href="mycv.html">MyCV</a></li>
     </ul>
 </nav>
+
 
 <section class="hero">
     <div class="hero-content">

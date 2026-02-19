@@ -1,0 +1,124 @@
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background: linear-gradient(90deg, #1e1f20, #8aaed6);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background: #18191a;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #bbdefb;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(87, 93, 100, 0.85), rgba(73, 97, 133, 0.85)),
+            url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .btn {
+            background: white;
+            color: #0d47a1;
+            padding: 12px 25px;
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #bbdefb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0d47a1;
+            margin-bottom: 40px;
+        }
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: #1565c0;
+        }
+
+        .about {
+            background: #e3f2fd;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .contact {
+            background: #6b8191;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background: #0b3c91;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 768px){
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
