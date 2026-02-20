@@ -56,6 +56,9 @@
             margin-bottom: 40px;
             text-align: center;
         }
+        p{
+            text-align: center;
+        }
 
         .courses {
             display: grid;
