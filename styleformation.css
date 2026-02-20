@@ -67,6 +67,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             transition: 0.3s;
+            text-align: center;
         }
 
         .card:hover {
@@ -75,6 +76,11 @@
 
         .card h3 {
             color: #1565c0;
+            text-align: center;
+        }
+        .card p {
+            color: #121212;
+            text-align: center;
         }
 
         .about {

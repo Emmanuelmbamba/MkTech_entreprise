@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>MKTech - Inscription Formation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleMenuMob.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MkTech SARL</title>
+<link rel="stylesheet" href="styleMenuMobF.css">
 <link rel="stylesheet" href="styleinscription.css">
 </head>
-
 <body>
-<nav class="navbar">
-    <div class="logo">MkTech SARL</div>
-    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-    <ul class="menu" id="menu">
-       <li><a href="index.html">Accueil</a></li>
-        <li><a href="solutions.html">Solutions</a></li>
+
+<!-- NAVBAR -->
+<nav>
+<div class="logo">
+    <a href="index.html">MkTech SARL</a>
+</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="solution.html">Solutions</a></li>
         <li><a href="formation.html">Formations</a></li>
-        <li><a href="#inscription.html">inscription</a></li>
         <li><a href="service.html">Services</a></li>
+        <li><a href="about.html">A Propos</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="mycv.html">MyCV</a></li>
     </ul>
-  </nav>
-<script src="javascrptMenus.js"></script>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- CORPS -->
+
 <header>
     <h1>MKTech</h1>
     <p>Centre Professionnel de Formation Informatique</p>
@@ -35,13 +46,13 @@
     <div class="form-box">
             <form id="inscriptionForm">
             <label>Nom complet</label>
-            <input type="text" required>
+            <input type="text" placeholder="Entrez votre noms complets">
 
             <label>Email</label>
-            <input type="email" required>
+            <input type="email" placeholder="Entrez votre email">
 
             <label>Téléphone</label>
-            <input type="tel" required>
+            <input type="tel" placeholder="Entrez votre numero de tel">
 
             <label>Choisir une formation</label>
             <select required>
@@ -55,7 +66,7 @@
             </select>
 
             <label>Message (optionnel)</label>
-            <textarea rows="4"></textarea>
+            <textarea rows="4" placeholder="Saisisez votre message"></textarea>
 
             <button type="submit">Envoyer l'inscription</button>
             <div class="success" id="successMessage">
@@ -64,11 +75,6 @@
         </form>
     </div>
 </section>
-
-<footer>
-    <p>&copy; 2026 MKTech SARL- Excellence Digitale Internationale</p>
-</footer>
-
 <script>
     const form = document.getElementById("inscriptionForm");
     const successMessage = document.getElementById("successMessage");
@@ -78,6 +84,29 @@
         successMessage.style.display = "block";
         form.reset();
     });
+</script>
+<!-- FOOTER FIXE -->
+<footer>
+    <p>&copy; 2026 MKTech SARL- Excellence Digitale Internationale</p>
+</footer>
+<script src="javascrptMenus.js"></script>
+<script>
+
+/* Scroll effect */
+window.addEventListener("scroll", function(){
+    document.querySelector("nav")
+    .classList.toggle("scrolled", window.scrollY > 50);
+});
+
+/* Mobile toggle */
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+});
+
 </script>
 
 </body>

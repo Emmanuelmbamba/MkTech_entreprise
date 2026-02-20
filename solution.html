@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MkTech SARL</title>
+<link rel="stylesheet" href="styleMenuMobF.css">
+<link rel="stylesheet" href="stylesolution.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<div class="logo">
+    <a href="index.html">MkTech SARL</a>
+</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#solutions.html">Solutions</a></li>
+        <li><a href="formation.html">Formations</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="about.html">A Propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mycv.html">MyCV</a></li>
+    </ul>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- CORPS -->
+
+<section class="hero">
+    <h2>Nos Solutions Technologiques</h2>
+    <p>MKTech accompagne les entreprises publiques et privées à Kinshasa et à l’international dans leur transformation digitale.</p>
+</section>
+
+<section class="solutions">
+    <h2>Nos Domaines d’Expertise</h2>
+
+    <div class="solution-grid">
+        <div class="card">
+            <h3>Développement Web & Applications</h3>
+            <p>Création de sites web professionnels, applications web et plateformes de gestion d’entreprise sécurisées et évolutives.</p>
+        </div>
+
+        <div class="card">
+            <h3>Gestion des Entreprises Publiques</h3>
+            <p>Centralisation des fonctionnalités administratives, digitalisation des processus internes et amélioration de la performance organisationnelle.</p>
+        </div>
+
+        <div class="card">
+            <h3>Réseaux & Télécommunications</h3>
+            <p>Installation, configuration et maintenance d’infrastructures réseau modernes adaptées aux besoins des entreprises.</p>
+        </div>
+
+        <div class="card">
+            <h3>Formation Informatique</h3>
+            <p>Programmes professionnels en développement web, cybersécurité, bases de données et administration réseau.</p>
+        </div>
+
+        <div class="card">
+            <h3>Support & Maintenance</h3>
+            <p>Assistance technique continue, résolution des problèmes électroniques et accompagnement 1er niveau.</p>
+        </div>
+
+        <div class="card">
+            <h3>Transformation Digitale</h3>
+            <p>Conseil stratégique pour moderniser les structures organisationnelles et intégrer des solutions technologiques innovantes.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Prêt à transformer votre entreprise ?</h2>
+    <a href="contact.html">Contactez-nous</a>
+</section>
+
+
+<!-- FOOTER FIXE -->
+<footer>
+    <p>&copy; 2026 MKTech SARL- Excellence Digitale Internationale</p>
+</footer>
+<script>
+
+/* Scroll effect */
+window.addEventListener("scroll", function(){
+    document.querySelector("nav")
+    .classList.toggle("scrolled", window.scrollY > 50);
+});
+
+/* Mobile toggle */
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+});
+
+</script>
+
+</body>
+</html>

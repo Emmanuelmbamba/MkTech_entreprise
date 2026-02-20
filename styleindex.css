@@ -10,6 +10,14 @@ body{
     color:#333;
 }
 
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+.logo a:hover{
+    text-decoration: none;
+}
+
 /* HERO SECTION */
 .hero{
     height:100vh;
