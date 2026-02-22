@@ -46,7 +46,8 @@ header h1{
 
 /* SERVICES SECTION */
 .services{
-    padding:80px 60px;
+padding:80px 80px;
+    
 }
 
 .services h2{
@@ -117,7 +118,7 @@ header h1{
 /* PROCESS SECTION */
 .process{
     background:white;
-    padding:80px 60px;
+    padding:80px 80px;
 }
 
 .process h2{
@@ -160,6 +161,7 @@ header h1{
     color:white;
     text-align:center;
     padding:70px 20px;
+    border-radius: 1px;
 }
 
 .cta a{
