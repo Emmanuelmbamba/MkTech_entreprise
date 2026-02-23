@@ -46,7 +46,10 @@ header h1{
 
 /* SERVICES SECTION */
 .services{
-padding:80px 80px;
+padding:20px;
+width: 90%;
+margin: auto;
+border-radius: 10px;
     
 }
 
@@ -101,7 +104,7 @@ padding:80px 80px;
     background:#0d47a1;
     top:0;
     left:0;
-      text-align: center;
+    text-align: center;
 }
 
 .service-card h3{
