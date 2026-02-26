@@ -42,7 +42,7 @@ nav{
 }
 
 nav.scrolled{
-    background:#2505f9;
+    background:lab(27.85% 43.3 -72.55 / 0.97);
     box-shadow:0 8px 25px rgba(251, 7, 7, 0.15);
 }
 
@@ -50,7 +50,7 @@ nav.scrolled{
 .logo{
     font-size:22px;
     font-weight:700;
-    color:#3c08f9;
+    color:#0d47a1;
 }
 
 nav.scrolled .logo{
@@ -70,7 +70,7 @@ nav.scrolled .logo{
 
 .nav-links a{
     text-decoration:none;
-    color:#3f04ef;
+   color:#0d47a1;
     font-weight:500;
     transition:0.3s;
 }
@@ -110,7 +110,7 @@ nav.scrolled .nav-links a{
 
 .mega-column h4{
     margin-bottom:15px;
-    color:#1f3c66;
+    color:#0d47a1;
 }
 
 .mega-column a{
