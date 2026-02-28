@@ -26,9 +26,9 @@ header h1{
 }
 /* HERO */
 .hero{
-    background:linear-gradient(rgba(127, 134, 145, 0.85),rgba(54, 65, 82, 0.85)),
+    background:linear-gradient(rgba(127, 134, 145, 0.029),rgba(54, 65, 82, 0.708)),
     url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d") center/cover;
-    color:white;
+    color:rgb(255, 255, 255);
     text-align:center;
     padding:120px 20px;
 }

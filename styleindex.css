@@ -18,11 +18,57 @@ body{
     text-decoration: none;
 }
 
+/*photo mulitple */
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 5px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+.slider {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  width: 270%; /* nombre d'images x 100% */
+  animation: slide 12s linear infinite;
+}
+
+.slides img {
+  width: 90%;
+  height: auto;
+}
+
+/* Animation : gauche → droite */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
+
 /* HERO SECTION */
 .hero{
     height:100vh;
-    background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("https://images.unsplash.com/photo-1498050108023-c5249f4df085");
+    background:linear-gradient(rgba(15, 15, 15, 0.311), rgba(85, 80, 161, 0.108)),
+    url("https://www.riseup.ai/hubfs/formation-salaries-entreprise.jpg");
     background-size:cover;
     background-position:center;
     display:flex;

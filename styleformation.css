@@ -11,8 +11,8 @@
             text-align: center;
         }
         .hero {
-            background: linear-gradient(rgba(87, 93, 100, 0.85), rgba(73, 97, 133, 0.85)),
-            url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+            background: linear-gradient(rgba(87, 93, 100, 0.281), rgba(73, 97, 133, 0.85)),
+            url('https://www.we-paie.com/wp-content/uploads/2021/07/formation-professionnelle.jpeg');
             background-size: cover;
             background-position: center;
             color: white;
