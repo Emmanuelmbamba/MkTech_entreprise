@@ -18,20 +18,20 @@ body{
     color: inherit;
     font-size:  24px;
     font-weight:bold ;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     transition: 0.4s ease;
 }
 .logo a:hover{
     text-decoration: none;
 }
 .logo img {
-    height: 60px;
+    height: 50px;
     transition: transform 0.3s ease;
-    filter: drop-shadow(0 0 5px #d49c1a);
+    filter: drop-shadow(0 0 5px #cbc7be);
 }
 
 header {
-    background-color: #0a1f3d; /* Bleu foncé */
+    background-color: #0368f7; /* Bleu foncé */
     padding: 15px 40px;
 }
 
@@ -56,13 +56,13 @@ nav{
     align-items:center;
     padding:0 60px;
     backdrop-filter:blur(15px);
-     background:lab(27.85% 43.3 -72.55 / 0.97);
+     background:#0368f7;
     transition:0.4s;
     z-index:1000;
 }
 
 nav.scrolled{
-    background:lab(27.85% 43.3 -72.55 / 0.97);
+    background:#0368f7;
     box-shadow:0 8px 25px rgba(251, 7, 7, 0.15);
 }
 
@@ -98,31 +98,6 @@ nav.scrolled .logo{
 nav.scrolled .nav-links a{
     color:rgb(255, 255, 255);
 }
-
-/* ================= MEGA MENU ================= */
-/*.mega-menu{
-    position:absolute;
-    top:60px;
-    left:-200px;
-    width:700px;
-    background:white;
-    padding:30px;
-    display:flex;
-    justify-content:space-between;
-    opacity:0;
-    visibility:hidden;
-    transform:translateY(20px);
-    transition:0.4s;
-    box-shadow:0 20px 40px rgba(247, 4, 4, 0.15);
-    border-radius:12px;
-    z-index:999;
-}
-.nav-links li:hover .mega-menu{
-    opacity:1;
-    visibility:visible;
-    transform:translateY(0);
-}
-*/
 
 .mega-column{
     width:30%;
@@ -191,7 +166,7 @@ nav.scrolled .hamburger span{
         position:absolute;
         top:90px;
         right:0;
-        background:#180364f7;
+        background:#0368f7;
         flex-direction:column;
         width:100px;
         height:calc(80vh - 80px);

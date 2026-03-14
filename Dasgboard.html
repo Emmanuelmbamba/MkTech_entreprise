@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+:root{
+    --primary:#2563eb;
+    --secondary:#1e293b;
+    --glass:rgba(255,255,255,0.05);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:#fff;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(20px);
+    padding:30px 20px;
+    position:fixed;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-weight:700;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:15px 0;
+}
+
+.sidebar ul li a{
+    text-decoration:none;
+    color:#ccc;
+    display:block;
+    padding:12px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+/* MAIN */
+.main{
+    margin-left:260px;
+    padding:30px;
+    width:100%;
+}
+
+/* HEADER */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-weight:600;
+}
+
+.profile{
+    background:var(--glass);
+    padding:10px 20px;
+    border-radius:50px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-bottom:40px;
+}
+
+.card{
+    background:var(--glass);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    font-size:16px;
+    color:#aaa;
+}
+
+.card p{
+    font-size:28px;
+    font-weight:700;
+    margin-top:10px;
+    color:#fff;
+}
+
+/* GRAPH */
+.chart-box{
+    background:var(--glass);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .sidebar{
+        width:200px;
+    }
+    .main{
+        margin-left:200px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>ENTERPRISE</h2>
+    <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Clients</a></li>
+        <li><a href="#">Finance</a></li>
+        <li><a href="#">Settings</a></li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h1>Executive Overview</h1>
+        <div class="profile">👤 Admin</div>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Revenue</h3>
+            <p>$125,400</p>
+        </div>
+        <div class="card">
+            <h3>Active Clients</h3>
+            <p>2,450</p>
+        </div>
+        <div class="card">
+            <h3>Growth</h3>
+            <p>+18%</p>
+        </div>
+        <div class="card">
+            <h3>Projects</h3>
+            <p>320</p>
+        </div>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="myChart"></canvas>
+    </div>
+
+</div>
+
+<script>
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+        datasets: [{
+            label: 'Revenue',
+            data: [12000,19000,15000,22000,30000,35000],
+            borderColor: '#2563eb',
+            backgroundColor: 'rgba(37,99,235,0.2)',
+            tension:0.4,
+            fill:true
+        }]
+    },
+    options: {
+        responsive:true,
+        plugins:{
+            legend:{labels:{color:'#fff'}}
+        },
+        scales:{
+            x:{ticks:{color:'#fff'}},
+            y:{ticks:{color:'#fff'}}
+        }
+    }
+});
+</script>
+
+</body>
+</html>

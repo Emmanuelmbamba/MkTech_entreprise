@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f6f9;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#111827;
+    color:#fff;
+    padding:20px;
+    position:fixed;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:15px 0;
+}
+
+.sidebar ul li a{
+    text-decoration:none;
+    color:#fff;
+    display:block;
+    padding:10px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    background:#2563eb;
+}
+
+/* MAIN CONTENT */
+.main{
+    margin-left:250px;
+    padding:20px;
+    width:100%;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:22px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+/* TABLE */
+.table-container{
+    margin-top:40px;
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th, table td{
+    padding:12px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+}
+
+table th{
+    background:#f1f5f9;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .sidebar{
+        width:200px;
+    }
+    .main{
+        margin-left:200px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>MonDashboard</h2>
+    <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Utilisateurs</a></li>
+        <li><a href="#">Statistiques</a></li>
+        <li><a href="#">Paramètres</a></li>
+        <li><a href="#">Déconnexion</a></li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h1>Tableau de Bord</h1>
+        <button onclick="alert('Notifications')">🔔</button>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Utilisateurs</h3>
+            <p>1,245</p>
+        </div>
+
+        <div class="card">
+            <h3>Ventes</h3>
+            <p>$8,540</p>
+        </div>
+
+        <div class="card">
+            <h3>Commandes</h3>
+            <p>320</p>
+        </div>
+
+        <div class="card">
+            <h3>Visites</h3>
+            <p>12,540</p>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <h2>Activités récentes</h2>
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Jean Dupont</td>
+                <td>jean@email.com</td>
+                <td>Actif</td>
+            </tr>
+            <tr>
+                <td>Marie Paul</td>
+                <td>marie@email.com</td>
+                <td>En attente</td>
+            </tr>
+            <tr>
+                <td>David K.</td>
+                <td>david@email.com</td>
+                <td>Bloqué</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

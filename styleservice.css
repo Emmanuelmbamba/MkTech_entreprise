@@ -180,11 +180,3 @@ border-radius: 10px;
 .cta a:hover{
     background:#bbdefb;
 }
-
-/* FOOTER */
-footer{
-    background:#0b3c91;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
