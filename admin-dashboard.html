@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administration - InnovaTech SARL</title>
+<link rel="stylesheet" href="global-design.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #1e293b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --glass: rgba(255,255,255,0.05);
+    --text: #ffffff;
+    --text-muted: #94a3b8;
+    --sidebar-width: 280px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(20px);
+    padding: 30px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    z-index: 1000;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-header img {
+    height: 45px;
+    border-radius: 8px;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 8px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--text-muted);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: var(--primary);
+    color: var(--text);
+    transform: translateX(5px);
+}
+
+.sidebar-nav .material-icons {
+    font-size: 20px;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: var(--error);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.logout-btn:hover {
+    background: rgba(239,68,68,0.2);
+    transform: translateY(-2px);
+}
+
+/* MAIN CONTENT */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 30px;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.user-role {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* STATS CARDS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.stat-icon.users {
+    background: rgba(37,99,235,0.2);
+    color: var(--primary);
+}
+
+.stat-icon.courses {
+    background: rgba(16,185,129,0.2);
+    color: var(--success);
+}
+
+.stat-icon.revenue {
+    background: rgba(245,158,11,0.2);
+    color: var(--warning);
+}
+
+.stat-icon.growth {
+    background: rgba(139,92,246,0.2);
+    color: #8b5cf6;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stat-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stat-change.positive {
+    background: rgba(16,185,129,0.2);
+    color: var(--success);
+}
+
+.stat-change.negative {
+    background: rgba(239,68,68,0.2);
+    color: var(--error);
+}
+
+/* CHARTS SECTION */
+.charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.chart-container {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.chart-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.chart-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.chart-btn {
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chart-btn:hover,
+.chart-btn.active {
+    background: var(--primary);
+    color: var(--text);
+}
+
+/* USERS TABLE */
+.table-container {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.table-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.add-user-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--primary);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-user-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th {
+    text-align: left;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.02);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.users-table td {
+    padding: 20px 30px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar-small {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+    font-size: 12px;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.role-badge.admin {
+    background: rgba(239,68,68,0.2);
+    color: var(--error);
+}
+
+.role-badge.user {
+    background: rgba(37,99,235,0.2);
+    color: var(--primary);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-badge.active {
+    background: rgba(16,185,129,0.2);
+    color: var(--success);
+}
+
+.status-badge.inactive {
+    background: rgba(148,163,184,0.2);
+    color: var(--text-muted);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--text);
+}
+
+.action-btn.delete:hover {
+    background: rgba(239,68,68,0.2);
+    color: var(--error);
+    border-color: rgba(239,68,68,0.3);
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid rgba(255,255,255,0.1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--text);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .users-table {
+        font-size: 12px;
+    }
+    
+    .users-table th,
+    .users-table td {
+        padding: 10px 15px;
+    }
+}
+
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--primary);
+    border: none;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU TOGGLE -->
+<button class="mobile-menu-toggle" id="mobileMenuToggle">
+    <span class="material-icons">menu</span>
+</button>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <img src="log1.jpeg" alt="InnovaTech">
+        <h2>InnovaTech Admin</h2>
+    </div>
+    
+    <nav>
+        <ul class="sidebar-nav">
+            <li><a href="#" class="active" data-page="dashboard">
+                <span class="material-icons">dashboard</span>
+                Tableau de bord
+            </a></li>
+            <li><a href="#" data-page="users">
+                <span class="material-icons">people</span>
+                Utilisateurs
+            </a></li>
+            <li><a href="#" data-page="courses">
+                <span class="material-icons">school</span>
+                Formations
+            </a></li>
+            <li><a href="#" data-page="analytics">
+                <span class="material-icons">analytics</span>
+                Statistiques
+            </a></li>
+            <li><a href="#" data-page="settings">
+                <span class="material-icons">settings</span>
+                Paramètres
+            </a></li>
+        </ul>
+    </nav>
+    
+    <div class="sidebar-footer">
+        <button class="logout-btn" id="logoutBtn">
+            <span class="material-icons">logout</span>
+            Déconnexion
+        </button>
+    </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+    <!-- HEADER -->
+    <header class="header">
+        <h1>Tableau de bord Administrateur</h1>
+        <div class="header-actions">
+            <div class="user-profile">
+                <div class="user-avatar" id="userAvatar">A</div>
+                <div class="user-info">
+                    <div class="user-name" id="userName">Admin</div>
+                    <div class="user-role">Administrateur</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- STATS GRID -->
+    <section class="stats-grid" id="dashboardStats">
+        <div class="stat-card">
+            <div class="stat-icon users">
+                <span class="material-icons">people</span>
+            </div>
+            <div class="stat-value" id="totalUsers">0</div>
+            <div class="stat-label">Utilisateurs totaux</div>
+            <div class="stat-change positive">
+                <span class="material-icons">trending_up</span>
+                +12% ce mois
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon courses">
+                <span class="material-icons">school</span>
+            </div>
+            <div class="stat-value">6</div>
+            <div class="stat-label">Formations actives</div>
+            <div class="stat-change positive">
+                <span class="material-icons">trending_up</span>
+                +2 nouvelles
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon revenue">
+                <span class="material-icons">payments</span>
+            </div>
+            <div class="stat-value">$45.2K</div>
+            <div class="stat-label">Revenus mensuels</div>
+            <div class="stat-change positive">
+                <span class="material-icons">trending_up</span>
+                +8% vs mois dernier
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon growth">
+                <span class="material-icons">show_chart</span>
+            </div>
+            <div class="stat-value">94%</div>
+            <div class="stat-label">Taux de satisfaction</div>
+            <div class="stat-change positive">
+                <span class="material-icons">trending_up</span>
+                +3% ce trimestre
+            </div>
+        </div>
+    </section>
+
+    <!-- CHARTS -->
+    <section class="charts-grid" id="dashboardCharts">
+        <div class="chart-container">
+            <div class="chart-header">
+                <h3 class="chart-title">Évolution des inscriptions</h3>
+                <div class="chart-actions">
+                    <button class="chart-btn active" data-period="week">Semaine</button>
+                    <button class="chart-btn" data-period="month">Mois</button>
+                    <button class="chart-btn" data-period="year">Année</button>
+                </div>
+            </div>
+            <canvas id="inscriptionChart" height="100"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-header">
+                <h3 class="chart-title">Répartition des formations</h3>
+            </div>
+            <canvas id="formationChart" height="200"></canvas>
+        </div>
+    </section>
+
+    <!-- USERS TABLE -->
+    <section class="table-container" id="usersSection">
+        <div class="table-header">
+            <div>
+                <h3 class="table-title">Gestion des utilisateurs</h3>
+                <input type="text" id="searchUser" placeholder="Rechercher un utilisateur..." class="form-control" style="width: 300px; margin-top: 10px; padding: 10px;">
+            </div>
+            <button class="add-user-btn" id="addUserBtn" style="align-self: flex-start;">
+                <span class="material-icons">add</span>
+                Ajouter un utilisateur
+            </button>
+        </div>
+        
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>Email</th>
+                    <th>Rôle</th>
+                    <th>Statut</th>
+                    <th>Inscription</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="usersTableBody">
+                <!-- Users will be populated here -->
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<!-- USER MODAL -->
+<div class="modal" id="userModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modalTitle">Ajouter un utilisateur</h3>
+            <button class="modal-close" id="modalClose">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        
+        <form id="userForm">
+            <div class="form-group">
+                <label>Nom complet</label>
+                <input type="text" id="modalNom" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="modalEmail" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Téléphone</label>
+                <input type="tel" id="modalTelephone" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Rôle</label>
+                <select id="modalRole" class="form-control" required>
+                    <option value="user">Utilisateur</option>
+                    <option value="admin">Administrateur</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Mot de passe</label>
+                <input type="password" id="modalPassword" class="form-control">
+            </div>
+            
+            <button type="submit" class="btn-login">Enregistrer</button>
+        </form>
+    </div>
+</div>
+
+<script>
+// Gestion de la session et authentification
+let currentUser = null;
+let users = [];
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', function() {
+    checkAuth();
+    loadUsers();
+    initCharts();
+    updateStats();
+    populateUsersTable();
+});
+
+function checkAuth() {
+    const session = JSON.parse(localStorage.getItem('innovatech_session'));
+    if (!session || !session.user || session.user.role !== 'admin') {
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    currentUser = session.user;
+    document.getElementById('userName').textContent = currentUser.nom;
+    document.getElementById('userAvatar').textContent = currentUser.nom.charAt(0).toUpperCase();
+}
+
+function loadUsers() {
+    users = JSON.parse(localStorage.getItem('innovatech_users')) || [];
+}
+
+function updateStats() {
+    document.getElementById('totalUsers').textContent = users.length;
+}
+
+function populateUsersTable(searchTerm = '') {
+    const tbody = document.getElementById('usersTableBody');
+    tbody.innerHTML = '';
+    
+    // Reverse users to show the latest added first
+    let filteredUsers = [...users].reverse();
+    
+    // Apply search filter if present
+    if (searchTerm) {
+        searchTerm = searchTerm.toLowerCase();
+        filteredUsers = filteredUsers.filter(u => 
+            u.nom.toLowerCase().includes(searchTerm) || 
+            u.email.toLowerCase().includes(searchTerm) || 
+            u.role.toLowerCase().includes(searchTerm)
+        );
+    }
+    
+    // Show top 20 users max or all if requested
+    filteredUsers = filteredUsers.slice(0, 50);
+    
+    filteredUsers.forEach(user => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>
+                <div class="user-cell">
+                    <div class="user-avatar-small">${user.nom.charAt(0).toUpperCase()}</div>
+                    <div>
+                        <div>${user.nom}</div>
+                        <div style="font-size: 12px; color: var(--text-muted);">${user.telephone}</div>
+                    </div>
+                </div>
+            </td>
+            <td>${user.email}</td>
+            <td>
+                <span class="role-badge ${user.role}">${user.role}</span>
+            </td>
+            <td>
+                <span class="status-badge active">Actif</span>
+            </td>
+            <td>${new Date(user.createdAt).toLocaleDateString('fr-FR')}</td>
+            <td>
+                <div class="action-buttons">
+                    <button class="action-btn edit" onclick="editUser(${user.id})">
+                        <span class="material-icons">edit</span>
+                    </button>
+                    <button class="action-btn delete" onclick="deleteUser(${user.id})">
+                        <span class="material-icons">delete</span>
+                    </button>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// Charts initialization
+function initCharts() {
+    // Inscription Chart
+    const ctxInscription = document.getElementById('inscriptionChart').getContext('2d');
+    new Chart(ctxInscription, {
+        type: 'line',
+        data: {
+            labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+            datasets: [{
+                label: 'Nouveaux utilisateurs',
+                data: [12, 19, 15, 22, 30, 25, 18],
+                borderColor: '#2563eb',
+                backgroundColor: 'rgba(37,99,235,0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: { color: '#ffffff' }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: 'rgba(255,255,255,0.05)' }
+                },
+                y: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: 'rgba(255,255,255,0.05)' }
+                }
+            }
+        }
+    });
+
+    // Formation Chart
+    const ctxFormation = document.getElementById('formationChart').getContext('2d');
+    new Chart(ctxFormation, {
+        type: 'doughnut',
+        data: {
+            labels: ['Dev Web', 'Réseau', 'Cybersécurité', 'Base de données', 'Maintenance'],
+            datasets: [{
+                data: [35, 25, 20, 12, 8],
+                backgroundColor: [
+                    '#2563eb',
+                    '#10b981',
+                    '#f59e0b',
+                    '#8b5cf6',
+                    '#ef4444'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: '#ffffff', padding: 15 }
+                }
+            }
+        }
+    });
+}
+
+// Modal management
+const modal = document.getElementById('userModal');
+const modalTitle = document.getElementById('modalTitle');
+const userForm = document.getElementById('userForm');
+let editingUserId = null;
+
+document.getElementById('addUserBtn').addEventListener('click', function() {
+    editingUserId = null;
+    modalTitle.textContent = 'Ajouter un utilisateur';
+    userForm.reset();
+    modal.classList.add('active');
+});
+
+document.getElementById('modalClose').addEventListener('click', function() {
+    modal.classList.remove('active');
+});
+
+modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+    }
+});
+
+userForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const userData = {
+        nom: document.getElementById('modalNom').value,
+        email: document.getElementById('modalEmail').value,
+        telephone: document.getElementById('modalTelephone').value,
+        role: document.getElementById('modalRole').value,
+        password: document.getElementById('modalPassword').value || 'default123'
+    };
+    
+    if (editingUserId) {
+        // Update existing user
+        const userIndex = users.findIndex(u => u.id === editingUserId);
+        if (userIndex !== -1) {
+            users[userIndex] = { ...users[userIndex], ...userData };
+        }
+    } else {
+        // Add new user
+        const newUser = {
+            id: Date.now(),
+            ...userData,
+            createdAt: new Date().toISOString()
+        };
+        users.push(newUser);
+    }
+    
+    localStorage.setItem('innovatech_users', JSON.stringify(users));
+    populateUsersTable();
+    updateStats();
+    modal.classList.remove('active');
+});
+
+function editUser(userId) {
+    const user = users.find(u => u.id === userId);
+    if (!user) return;
+    
+    editingUserId = userId;
+    modalTitle.textContent = 'Modifier un utilisateur';
+    
+    document.getElementById('modalNom').value = user.nom;
+    document.getElementById('modalEmail').value = user.email;
+    document.getElementById('modalTelephone').value = user.telephone;
+    document.getElementById('modalRole').value = user.role;
+    document.getElementById('modalPassword').value = '';
+    
+    modal.classList.add('active');
+}
+
+function deleteUser(userId) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+        users = users.filter(u => u.id !== userId);
+        localStorage.setItem('innovatech_users', JSON.stringify(users));
+        populateUsersTable();
+        updateStats();
+    }
+}
+
+// Logout
+document.getElementById('logoutBtn').addEventListener('click', function() {
+    localStorage.removeItem('innovatech_session');
+    window.location.href = 'login.html';
+});
+
+// Mobile menu
+document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('active');
+});
+
+// Chart period buttons
+document.querySelectorAll('.chart-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        // Here you would update the chart data based on the selected period
+    });
+});
+
+// Navigation
+document.querySelectorAll('.sidebar-nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.sidebar-nav a').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        
+        const page = this.dataset.page;
+        
+        const stats = document.getElementById('dashboardStats');
+        const charts = document.getElementById('dashboardCharts');
+        const users = document.getElementById('usersSection');
+        
+        if (page === 'dashboard') {
+            stats.style.display = 'grid';
+            charts.style.display = 'grid';
+            users.style.display = 'block';
+            document.querySelector('.table-title').textContent = 'Utilisateurs récents';
+        } else if (page === 'users') {
+            stats.style.display = 'none';
+            charts.style.display = 'none';
+            users.style.display = 'block';
+            document.querySelector('.table-title').textContent = 'Gestion des utilisateurs';
+        } else {
+            // Other pages like courses, settings
+            stats.style.display = 'none';
+            charts.style.display = 'none';
+            users.style.display = 'none';
+        }
+    });
+});
+
+// Search User Event
+document.getElementById('searchUser').addEventListener('input', function(e) {
+    populateUsersTable(e.target.value);
+});
+</script>
+
+</body>
+</html>

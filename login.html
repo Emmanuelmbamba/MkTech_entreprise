@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaTech SARL - Connexion</title>
+    <link rel="stylesheet" href="global-design.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="glass-container">
+        <div class="logo-section">
+            <a href="index.html">
+                <img src="log1.jpeg" alt="Logo InnovaTech">
+            </a>
+            <h1>InnovaTech SARL</h1>
+            <p>Centre Professionnel en Technologie</p>
+        </div>
+
+        <div class="alert alert-success" id="successAlert">
+            <span class="material-icons">check_circle</span>
+            <span>Connexion réussie ! Redirection...</span>
+        </div>
+
+        <div class="alert alert-error" id="errorAlert">
+            <span class="material-icons">error</span>
+            <span id="errorMessage">Email ou mot de passe incorrect</span>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-wrapper">
+                    <span class="material-icons"></span>
+                    <input type="email" id="email" class="form-control form-control-icon" placeholder="exemple@email.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <div class="input-wrapper">
+                    <span class="material-icons"></span>
+                    <input type="password" id="password" class="form-control form-control-icon" placeholder="••••••••" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary" id="loginBtn" style="width: 100%;">
+                Se connecter
+            </button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <span style="margin-left: 10px;">Connexion en cours...</span>
+            </div>
+        </form>
+
+        <div class="divider">
+            <span style="background: transparent;">OU</span>
+        </div>
+
+        <div class="auth-link">
+            <p>Pas encore de compte ? <a href="register.html">Créer un compte</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+// Base de données utilisateurs simulée
+let users = JSON.parse(localStorage.getItem('innovatech_users')) || [
+    {
+        id: 1,
+        email: 'admin@innovatech.com',
+        password: 'admin123',
+        nom: 'Administrateur',
+        role: 'admin',
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: 2,
+        email: 'user@innovatech.com',
+        password: 'user123',
+        nom: 'Utilisateur Test',
+        role: 'user',
+        createdAt: new Date().toISOString()
+    }
+];
+
+const loginForm = document.getElementById('loginForm');
+const loginBtn = document.getElementById('loginBtn');
+const loading = document.getElementById('loading');
+const successAlert = document.getElementById('successAlert');
+const errorAlert = document.getElementById('errorAlert');
+const errorMessage = document.getElementById('errorMessage');
+
+loginForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    
+    if (!email || !password) {
+        showError('Veuillez remplir tous les champs');
+        return;
+    }
+    
+    loginBtn.style.display = 'none';
+    loading.style.display = 'block';
+    hideAlerts();
+    
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    const user = users.find(u => u.email === email && u.password === password);
+    
+    if (user) {
+        const session = {
+            user: {
+                id: user.id,
+                email: user.email,
+                nom: user.nom,
+                role: user.role
+            },
+            loginAt: new Date().toISOString()
+        };
+        
+        localStorage.setItem('innovatech_session', JSON.stringify(session));
+        showSuccess();
+        
+        setTimeout(() => {
+            if (user.role === 'admin') {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                window.location.href = 'user-dashboard.html';
+            }
+        }, 2000);
+        
+    } else {
+        showError('Email ou mot de passe incorrect');
+        loginBtn.style.display = 'inline-flex';
+        loading.style.display = 'none';
+    }
+});
+
+function showSuccess() {
+    successAlert.style.display = 'flex';
+    errorAlert.style.display = 'none';
+}
+
+function showError(message) {
+    errorMessage.textContent = message;
+    errorAlert.style.display = 'flex';
+    successAlert.style.display = 'none';
+}
+
+function hideAlerts() {
+    successAlert.style.display = 'none';
+    errorAlert.style.display = 'none';
+}
+
+window.addEventListener('load', function() {
+    const session = JSON.parse(localStorage.getItem('innovatech_session'));
+    if (session && session.user) {
+        if (session.user.role === 'admin') {
+            window.location.href = 'admin-dashboard.html';
+        } else {
+            window.location.href = 'user-dashboard.html';
+        }
+    }
+});
+</script>
+
+</body>
+</html>

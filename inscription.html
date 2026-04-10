@@ -1,120 +1,142 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MkTech SARL</title>
-<link rel="stylesheet" href="styleMenuMobF.css">
-<link rel="stylesheet" href="styleinscription.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaTech SARL - Inscription Formation</title>
+    <link rel="stylesheet" href="global-design.css">
+    <link rel="stylesheet" href="styleMenuMobF.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-<div class="logo">
-     <a href="index.html">
-        <img src="logo_1CPtech.png" alt="Logo CPTech" height="60">
-    </a>
-    
-    <a href="index.html">
-       CPTech SARL
-    </a>
-    
-</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="solution.html">Solutions</a></li>
-        <li><a href="formation.html">Formations</a></li>
-        <li><a href="service.html">Services</a></li>
-        <li><a href="about.html">A Propos</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="#mycv.html">MyCV</a></li>
-    </ul>
-
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</nav>
-
-<!-- CORPS -->
-
-<header>
-    <h1>CPTech</h1>
-    <p>Centre Professionnel de Formation Informatique</p>
-    <p>Directeur : Emmanuel Mbamba | Kinshasa</p>
-</header>
-
-
-<section class="container">
-    <h2>Formulaire d'Inscription</h2>
-
-    <div class="form-box">
-            <form id="inscriptionForm">
-            <label>Nom complet</label>
-            <input type="text" placeholder="Entrez votre noms complets">
-
-            <label>Email</label>
-            <input type="email" placeholder="Entrez votre email">
-
-            <label>Téléphone</label>
-            <input type="tel" placeholder="Entrez votre numero de tel">
-
-            <label>Choisir une formation</label>
-            <select required>
-                <option value="">-- Sélectionner --</option>
-                <option>Développement Web & Applications</option>
-                <option>Administration Réseau & Télécom</option>
-                <option>Gestion des Entreprises Publiques</option>
-                <option>Base de Données</option>
-                <option>Cybersécurité</option>
-                <option>Maintenance Informatique</option>
-            </select>
-
-            <label>Message (optionnel)</label>
-            <textarea rows="4" placeholder="Saisisez votre message"></textarea>
-
-            <button type="submit">Envoyer l'inscription</button>
-            <div class="success" id="successMessage">
-            ✅ Inscription envoyée avec succès !
+    <!-- NAVBAR FIXED -->
+    <nav id="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="log1.jpeg" alt="Logo InnovaTech">
+                InnovaTech SARL
+            </a>
         </div>
-        </form>
-    </div>
-</section>
-<script>
-    const form = document.getElementById("inscriptionForm");
-    const successMessage = document.getElementById("successMessage");
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="solution.html">Solutions</a></li>
+            <li><a href="formation.html" class="active">Formations</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="about.html">A Propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" style="color: var(--accent); border: 1px solid var(--accent); padding: 5px 15px;">Connexion</a></li>
+        </ul>
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-    form.addEventListener("submit", function(e){
-        e.preventDefault();
-        successMessage.style.display = "block";
-        form.reset();
-    });
-</script>
-<!-- FOOTER FIXE -->
-<footer>
-    <p>&copy; 2026 CPTech SARL- Excellence Digitale Internationale</p>
-</footer>
-<script src="javascrptMenus.js"></script>
-<script>
+    <!-- CONTENT -->
+    <section class="page-container animate-on-scroll is-visible" style="max-width: 800px; padding-top: 150px;">
+        <div class="section-header">
+            <h1 class="section-title">Inscription aux <span class="text-gradient-primary">Formations</span></h1>
+            <p class="section-subtitle">
+                Rejoignez le Centre Professionnel de Formation Informatique (Dir: Emmanuel Mbamba).
+            </p>
+        </div>
 
-/* Scroll effect */
-window.addEventListener("scroll", function(){
-    document.querySelector("nav")
-    .classList.toggle("scrolled", window.scrollY > 50);
-});
+        <div class="glass-container">
+            <form id="inscriptionForm">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <div class="input-wrapper">
+                        <span class="material-icons">person</span>
+                        <input type="text" name="nom" class="form-control" style="padding-left: 45px;" placeholder="Entrez votre nom complet" required>
+                    </div>
+                </div>
 
-/* Mobile toggle */
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-wrapper">
+                        <span class="material-icons">email</span>
+                        <input type="email" name="email" class="form-control" style="padding-left: 45px;" placeholder="Entrez votre email" required>
+                    </div>
+                </div>
 
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
-});
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <div class="input-wrapper">
+                        <span class="material-icons">phone</span>
+                        <input type="tel" name="telephone" class="form-control" style="padding-left: 45px;" placeholder="Entrez votre numéro de téléphone" required>
+                    </div>
+                </div>
 
-</script>
+                <div class="form-group">
+                    <label>Choisir une formation</label>
+                    <div class="input-wrapper">
+                        <span class="material-icons">school</span>
+                        <select name="formation" class="form-control" style="padding-left: 45px;" required>
+                            <option value="">-- Sélectionner --</option>
+                            <option value="dev-web">Développement Web & Applications</option>
+                            <option value="admin-reseau">Administration Réseau & Télécom</option>
+                            <option value="gestion-entreprises">Gestion des Entreprises Publiques</option>
+                            <option value="base-donnees">Base de Données</option>
+                            <option value="cybersecurite">Cybersécurité</option>
+                            <option value="maintenance">Maintenance Informatique</option>
+                        </select>
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    <label>Message (optionnel)</label>
+                    <textarea rows="4" name="message" class="form-control" placeholder="Saisissez votre message"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%;">Envoyer l'inscription</button>
+                
+                <div class="success" id="successMessage" style="display:none; color: var(--success); margin-top: 15px; text-align: center; background: rgba(16,185,129,0.1); padding: 10px; border-radius: 8px;">
+                    ✅ Inscription envoyée avec succès ! Notre équipe vous contactera sous peu.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            &copy; 2026 InnovaTech SARL - Excellence Digitale Internationale.
+        </div>
+        <div>
+            <a href="contact.html">Nous Contacter</a> | 
+            <a href="about.html">A Propos</a>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scrolled Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        const form = document.getElementById("inscriptionForm");
+        const successMessage = document.getElementById("successMessage");
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+            successMessage.style.display = "block";
+            form.reset();
+        });
+    </script>
 </body>
 </html>

@@ -1,107 +1,172 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CPTech SARL</title>
-<link rel="stylesheet" href="styleMenuMobF.css">
-<link rel="stylesheet" href="stylepropos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaTech SARL - À Propos</title>
+    <link rel="stylesheet" href="global-design.css">
+    <link rel="stylesheet" href="styleMenuMobF.css">
+    <style>
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .card {
+            text-align: center;
+        }
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .director {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 80px;
+        }
+        .director-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+        .director-content {
+            flex: 1;
+        }
+        @media (max-width: 768px) {
+            .director {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-<div class="logo">
-    <a href="index.html">
-        <img src="logo_1CPtech.png" alt="Logo CPTech" height="60">
-    </a>
-    
-    <a href="index.html">
-       CPTech SARL
-    </a>
-    
-</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="solution.html">Solutions</a></li>
-        <li><a href="formation.html">Formations</a></li>
-        <li><a href="service.html">Services</a></li>
-        <li><a href="about.html">A Propos</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="#mycv.html">MyCV</a></li>
-    </ul>
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- NAVBAR FIXED -->
+    <nav id="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="log1.jpeg" alt="Logo InnovaTech">
+                InnovaTech SARL
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="solution.html">Solutions</a></li>
+            <li><a href="formation.html">Formations</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="about.html" class="active">A Propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" style="color: var(--accent); border: 1px solid var(--accent); padding: 5px 15px;">Connexion</a></li>
+        </ul>
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="page-container animate-on-scroll is-visible">
+        <section class="section-header">
+            <h1 class="section-title">À propos de <span class="text-gradient-primary">InnovaTech SARL</span></h1>
+            <p class="section-subtitle">
+                Centre Professionnel en Technologie, pionnier de l'excellence digitale en République Démocratique du Congo et à l'international.
+            </p>
+        </section>
+
+        <section class="glass-container" style="margin-bottom: 60px;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">Notre Mission</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">
+                    InnovaTech a pour mission d'accompagner la transformation digitale 
+                    des entreprises publiques et privées grâce à des solutions technologiques 
+                    innovantes, sécurisées et des formations certifiantes de haut niveau.
+                </p>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Vision</h3>
+                    <p style="color: var(--text-muted);">Devenir l'acteur majeur incontournable de la modernisation numérique au cœur de l'Afrique.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Valeurs</h3>
+                    <p style="color: var(--text-muted);">Innovation continue, Excellence opérationnelle, Intégrité professionnelle et Performance technique.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Engagement</h3>
+                    <p style="color: var(--text-muted);">Offrir des services fiables et conformes aux standards internationaux les plus stricts.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-container director">
+            <img src="profile.jpg" alt="Directeur Emmanuel Mbamba" class="director-img">
+            <div class="director-content">
+                <h2 style="font-size: 2rem; margin-bottom: 10px;">Le Mot du Directeur</h2>
+                <h4 style="color: var(--accent); margin-bottom: 20px;">M. Emmanuel Mbamba</h4>
+                <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                    " La révolution numérique n'atteindra son plein potentiel que si elle est accompagnée par des expertises solides. 
+                    Chez InnovaTech, nous nous engageons à développer les compétences locales et à proposer des infrastructures critiques adaptées 
+                    aux réalités du terrain tout en garantissant des niveaux de sécurité internationaux. "
+                </p>
+                <div style="margin-top: 20px;">
+                    <a href="mycv.html" class="btn-glass">Découvrez mon parcours professionnel</a>
+                </div>
+            </div>
+        </section>
+
     </div>
-</nav>
 
-<!-- CORPS -->
-<section class="hero">
-    <h1>À propos de CPTech SARL</h1>
-</section>
-
-<section class="section">
-    <h2>Notre Mission</h2>
-    <p>
-        MKTech a pour mission d'accompagner la transformation digitale 
-        des entreprises publiques et privées en République Démocratique du Congo 
-        grâce à des solutions technologiques innovantes et des formations de haut niveau.
-    </p>
-
-    <div class="cards">
-        <div class="card">
-            <h3>Vision</h3>
-            <p>Devenir un acteur majeur de la modernisation numérique en Afrique.</p>
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            &copy; 2026 InnovaTech SARL - Excellence Digitale Internationale.
         </div>
-
-        <div class="card">
-            <h3>Valeurs</h3>
-            <p>Innovation, Excellence, Intégrité et Performance.</p>
+        <div>
+            <a href="contact.html">Nous Contacter</a> | 
+            <a href="about.html">A Propos</a>
         </div>
+    </footer>
 
-        <div class="card">
-            <h3>Engagement</h3>
-            <p>Offrir des services conformes aux standards internationaux.</p>
-        </div>
-    </div>
-</section>
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-<section class="director">
-    <h2>Mot du Directeur</h2>
-    <p>
-        Sous la direction de monsieur <strong>Emmanuel Mbamba</strong>, CPTech 
-        s'engage à développer des compétences numériques solides 
-        et à proposer des solutions adaptées aux réalités locales 
-        tout en respectant les standards internationaux.
-    </p>
-</section>
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-<!-- FOOTER FIXE -->
-<footer>
-    <p>&copy; 2026 CPTech SARL- Excellence Digitale Internationale</p>
-</footer>
-<script src="javascrptMenus.js"></script>
-<script>
-
-/* Scroll effect */
-window.addEventListener("scroll", function(){
-    document.querySelector("nav")
-    .classList.toggle("scrolled", window.scrollY > 50);
-});
-
-/* Mobile toggle */
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
-});
-
-</script>
-
+        document.querySelectorAll('.animate-on-scroll').forEach((elem) => {
+            observer.observe(elem);
+        });
+    </script>
 </body>
 </html>

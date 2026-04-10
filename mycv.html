@@ -1,301 +1,306 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV - Emmanuel MBAMBA KIZIKU</title>
-
-<style>
-
-/* ================== GLOBAL ================== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-body{
-    background:#eef2f7;
-    display:flex;
-    justify-content:center;
-    padding:20px;
-}
-
-/* ================== CONTAINER ================== */
-.container{
-    width:100%;
-    max-width:1100px;
-    background:white;
-    display:flex;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    border-radius:10px;
-    overflow:hidden;
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* ================== LEFT SIDE ================== */
-.left{
-    width:35%;
-    background:linear-gradient(180deg,#1f3c66,#142a47);
-    color:white;
-    padding:25px;
-}
-
-.profile img{
-    width:100%;
-    border-radius:10px;
-    margin-bottom:20px;
-    transition:0.3s;
-}
-
-.profile img:hover{
-    transform:scale(1.05);
-}
-
-.section{
-    margin-bottom:25px;
-}
-
-.section h2{
-    font-size:18px;
-    margin-bottom:10px;
-    border-bottom:1px solid rgba(255,255,255,0.3);
-    padding-bottom:5px;
-}
-
-.section ul{
-    margin-left:18px;
-}
-
-.section ul li{
-    margin-bottom:8px;
-    font-size:14px;
-}
-
-.section p{
-    font-size:14px;
-    margin-bottom:8px;
-}
-
-/* ================== RIGHT SIDE ================== */
-.right{
-    width:65%;
-    padding:35px;
-}
-
-.header h1{
-    font-size:30px;
-    color:#1f3c66;
-}
-
-.header h3{
-    margin:8px 0;
-    color:#444;
-}
-
-.header p{
-    margin-top:10px;
-    font-size:14px;
-    line-height:1.6;
-}
-
-.content h2{
-    margin-top:30px;
-    color:#1f3c66;
-    border-bottom:2px solid #1f3c66;
-    padding-bottom:5px;
-}
-
-.content h3{
-    margin-top:15px;
-    color:#333;
-}
-
-.content ul{
-    margin-left:20px;
-    margin-top:5px;
-}
-
-.content ul li{
-    margin-bottom:6px;
-    font-size:14px;
-}
-
-/* ================== BUTTON ================== */
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:10px 18px;
-    background:#1f3c66;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#142a47;
-    transform:translateY(-3px);
-}
-
-/* ================== ANIMATION ================== */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* ================== RESPONSIVE ================== */
-@media(max-width:900px){
-    .container{
-        flex-direction:column;
-    }
-    .left, .right{
-        width:100%;
-    }
-}
-
-/* ================== PRINT STYLE ================== */
-@media print{
-    body{
-        background:white;
-    }
-    .btn{
-        display:none;
-    }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Emmanuel MBAMBA KIZIKU</title>
+    <link rel="stylesheet" href="global-design.css">
+    <link rel="stylesheet" href="styleMenuMobF.css">
+    <style>
+        .cv-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 1300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cv-left {
+            width: 35%;
+            background: rgba(37, 99, 235, 0.1); 
+            border-right: 1px solid var(--glass-border);
+            padding: 40px 30px;
+        }
+        .cv-right {
+            width: 65%;
+            padding: 40px 30px;
+        }
+        @media (max-width: 900px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .cv-left, .cv-right {
+                width: 100%;
+                border-right: none;
+            }
+        }
+        .profile-img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: var(--radius);
+            margin: 0 auto 30px;
+            display: block;
+            border: 3px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+        .section-title-cv {
+            color: var(--accent);
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            font-size: 1.4rem;
+        }
+        .cv-left .section-title-cv {
+            margin-top: 40px;
+        }
+        ul.cv-list {
+            list-style: none;
+        }
+        ul.cv-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        ul.cv-list li .material-icons {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            border-left: 2px solid var(--primary);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+        .timeline-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .glass-container {
+                background: none;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            .cv-left {
+                background: #f4f4f4;
+            }
+            .btn-group, nav, footer {
+                display: none;
+            }
+            .text-gradient, .text-gradient-primary {
+                background: none;
+                -webkit-text-fill-color: black;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-
-    <!-- LEFT -->
-    <div class="left">
-
-        <div class="profile">
-            <img src="profile.jpg" alt="Photo">
+    <!-- NAVBAR FIXED -->
+    <nav id="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="log1.jpeg" alt="Logo InnovaTech">
+                InnovaTech SARL
+            </a>
         </div>
-
-        <div class="section">
-            <h2>Informations personnelles</h2>
-            <p><strong>Etat civil:</strong> Marié</p>
-            <p><strong>Date de naissance:</strong> 12 Juillet</p>
-            <p><strong>Adresse:</strong> Kinshasa, RDC</p>
-            <p><strong>Téléphone:</strong><br>
-            +243818451340<br>
-            +243997300932</p>
-            <p><strong>Email:</strong><br>
-            Emmanuel.mbamba87@gmail.com</p>
-             <p><strong>Email:</strong><br>
-            Emmanuel.mbamba@unikin.ac.cd</p>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="solution.html">Solutions</a></li>
+            <li><a href="formation.html">Formations</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="about.html">A Propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" style="color: var(--accent); border: 1px solid var(--accent); padding: 5px 15px;">Connexion</a></li>
+        </ul>
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+    </nav>
 
-        <div class="section">
-            <h2>Compétences</h2>
-            <ul>
-                <li>Transmission Microwave</li>
-                <li>Computer Network & Cyber Security</li>
-                <li>Incident Management</li>
-                <li>Data Analysis</li>
-                <li>Leadership</li>
-                <li>Java, C#, C, JS, PHP, Node.js</li>
-            </ul>
-        </div>
+    <!-- CONTENT -->
+    <div class="page-container animate-on-scroll is-visible" style="padding-top: 120px;">
+        <div class="glass-container" style="padding: 0; display: flex; flex-direction: column;">
+            
+            <div class="cv-container" style="margin-top: 0;">
+                <!-- LEFT PANEL -->
+                <div class="cv-left">
+                    <img src="profile.jpg" alt="Emmanuel MBAMBA" class="profile-img">
+                    
+                    <h2 class="section-title-cv" style="margin-top: 0;">Infos Personnelles</h2>
+                    <ul class="cv-list">
+                        <li><span class="material-icons">cake</span> 12 Juillet</li>
+                        <li><span class="material-icons">location_on</span> Kinshasa, RDC</li>
+                        <li><span class="material-icons">phone</span> +243 818 451 340 <br> +243 997 300 932</li>
+                        <li><span class="material-icons">email</span> Emmanuel.mbamba87@gmail.com <br> Emmanuel.mbamba@unikin.ac.cd</li>
+                    </ul>
 
-        <div class="section">
-            <h2>Langues</h2>
-            <ul>
-                <li>Français - Natif</li>
-                <li>Anglais - B1</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Reférence</h2>
-            <ul>
-                <li>Jeremy BILALA, Manager Transmission Engineer, Tel: +243 999967531, Huawei RDC. 
-(Jeremy.bilala.ndulu@huawei-partners.com)</li>
-                <li>Prof. Dr Jean-PEPE BUANGA, Tel : +243 978 689 548, Universitéé de Kinshasa</li>
-                <li>Lumière KABADI, Electronic Solution Manager, Tel : +243 81 444 44 29, Vodacom 
-RDC (Lumiere.kabadi@vodacom.cd)
-</li>
-            </ul>
+                    <h2 class="section-title-cv">Compétences</h2>
+                    <ul class="cv-list">
+                        <li><span class="material-icons">check_circle</span> Transmission Microwave</li>
+                        <li><span class="material-icons">check_circle</span> Computer Network & Cyber Security</li>
+                        <li><span class="material-icons">check_circle</span> Incident Management</li>
+                        <li><span class="material-icons">check_circle</span> Data Analysis</li>
+                        <li><span class="material-icons">check_circle</span> Leadership</li>
+                        <li><span class="material-icons">check_circle</span> Java, C#, C, JS, PHP, Node.js</li>
+                    </ul>
+
+                    <h2 class="section-title-cv">Langues</h2>
+                    <ul class="cv-list">
+                        <li><span class="material-icons">translate</span> Français - Natif</li>
+                        <li><span class="material-icons">translate</span> Anglais - B1</li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT PANEL -->
+                <div class="cv-right">
+                    <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Emmanuel <span class="text-gradient-primary">MBAMBA KIZIKU</span></h1>
+                    <h3 style="color: var(--text-muted); font-weight: 500; font-size: 1.3rem; margin-bottom: 20px;">Expert en Transmission Telecom & IT</h3>
+                    
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                        Je suis un expert en réseau télécom et cybersécurité avec plus de 4 ans d'expérience en transmission radio. 
+                        J'ai une solide expérience de la configuration de routeurs, la gestion d'incidents et la résolution de problèmes techniques. 
+                        Je suis également un excellent transmetteur de connaissances, capable de travailler efficacement en équipe et de présenter 
+                        des idées complexes de manière claire et concise.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="contact.html" class="btn-primary">Me contacter</a>
+                        <button onclick="window.print()" class="btn-glass"><span class="material-icons">print</span> Télécharger PDF</button>
+                    </div>
+
+                    <h2 class="section-title-cv">Expérience Professionnelle</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022 - Actuel</div>
+                        <h3 class="timeline-title">BackOffice Transmission Engineer <br><span style="font-size: 1rem; color: var(--text-muted);">Huawei / MS Airtel DRC</span></h3>
+                        <p class="timeline-desc">
+                            Configuration des sites micro-ondes, analyse et dépannage d'incidents, gestion du réseau,
+                            planification et conception de sites, rédaction de rapports et documentation.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2018 - Actuel</div>
+                        <h3 class="timeline-title">Chercheur IT <br><span style="font-size: 1rem; color: var(--text-muted);">Université de Kinshasa</span></h3>
+                        <p class="timeline-desc">
+                            Recherche en architecture téléinformatique, cybersécurité, cryptographie, systèmes distribués et cloud computing.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2017 - 2018</div>
+                        <h3 class="timeline-title">Electronic Distribution Market Specialist Assistant <br><span style="font-size: 1rem; color: var(--text-muted);">Vodacom DRC / Bensizwe</span></h3>
+                        <p class="timeline-desc">
+                            Support de niveau 1, résolution des incidents techniques (EVC, UVC, CMS, Dealer Web), suivi, reporting, 
+                            et escalade des problèmes complexes. Assistance technique pour les marchés.
+                        </p>
+                    </div>
+
+                    <h2 class="section-title-cv">Éducation</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2017</div>
+                        <h3 class="timeline-title">Licence en Génie Informatique</h3>
+                        <p class="timeline-desc">Université de Kinshasa (UNIKIN), RDC. Département de Mathématiques et informatique.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2015</div>
+                        <h3 class="timeline-title">Graduat en Informatique</h3>
+                        <p class="timeline-desc">Université de Kinshasa (UNIKIN), RDC.</p>
+                    </div>
+
+                    <h2 class="section-title-cv">Références</h2>
+                    <ul class="cv-list" style="color: var(--text-muted); font-size: 0.95rem;">
+                        <li><span class="material-icons">person</span> <div><strong>Jeremy BILALA</strong>, Manager Transmission Engineer Huawei RDC. Tel: +243 999 967 531</div></li>
+                        <li><span class="material-icons">person</span> <div><strong>Prof. Dr Jean-PEPE BUANGA</strong>, Chercheur Université de Kinshasa. Tel: +243 978 689 548</div></li>
+                        <li><span class="material-icons">person</span> <div><strong>Lumière KABADI</strong>, Electronic Solution Manager Vodacom RDC. Tel: +243 814 444 429</div></li>
+                    </ul>
+
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="right">
-
-        <div class="header">
-            <h1>Emmanuel MBAMBA KIZIKU</h1>
-            <h2>Expert en Transmission Telecom & IT</h2>
-            <p>
-                Je suis un expert en réseau télécom et cybersécurité avec plus de 4 ans d'expérience en transmission 
-radio. J'ai une solide expérience de la configuration de routeurs, configuration de commutateurs, la 
-gestion d'incidents et de la résolution de problèmes techniques. Je suis également un excellent 
-transmettant de micro-ondes, capable de travailler efficacement en équipe et de présenter des idées 
-complexes de manière claire et concise.
-            </p>
-
-            <a href="#" class="btn" onclick="window.print()">Télécharger en PDF</a>
-             <a href="index.html" class="btn" onclick="">Accueil</a>
-             <a href="formation.html" class="btn" onclick="">Service</a>
-             <a href="contact.html" class="btn" onclick="">Contact</a>
-             <a href="inscription.html" class="btn" onclick="">Inscription</a>
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            &copy; 2026 InnovaTech SARL - Excellence Digitale Internationale.
         </div>
-
-        <div class="content">
-
-            <h2>Expérience Professionnelle</h2>
-
-            <h3>BackOffice Transmission Engineer, Huawei/ MS Airtel DRC DRC /RTN 
-/Ericsson TN /Ceragon IP20</h3>
-            <p><strong>2022 - Aujourd'hui</strong></p>
-            <ul>
-                <li>Configuration des sites micro-ondes</li>
-                <li>Analyse et dépannage d'incidents</li>
-                <li>Management network</li>
-                <li>Planification & design de sites</li>
-                <li>Rapport et documentation</li>
-            </ul>
-
-            <h2>Research , University de Kinshasa</h2>
-            <p><strong>2018 - Aujourd'hui</strong></p>
-            <p><strong>Domaines de Récherches</strong></p>
-            <ul>
-                <li>Architecture téléinformatique</li>
-                <li>Sécurité cyber-sécurité & cryptographie</li>
-                <li>Systeme et cloud</li>
-            </ul>
-
-            <h2>Electronic Distribution Market Specialist Assistant, Vodacom DRC/Bensizwe</h2>
-            <p><strong>2017 - 2018</strong></p>
-            <p><strong>Responsabilités principales</strong></p>
-            <ul>
-                <li>Résoudre tous les problèmes électroniques et incidents techniques dans un délai maximum de 24 heures</li>
-                <li>Fournir une assistance technique au marché concernant l’utilisation des systèmes électroniques fournis par Vodacom, notamment : EVC, UVC, CMS, Dealer Web, SP Onboarding</li>
-                <li>Assurer le support de premier niveau (1st Level Support) aux utilisateurs</li>
-                <li>Effectuer le suivi, le reporting et la résolution des incidents techniques</li>
-                <li>Escalader les problèmes complexes vers le support de niveau supérieur si nécessaire</li>
-            </ul>
-
-            <h2>Education</h2>
-            <ul>
-                <li>Licencé en Génie Informatique, Université de Kinshasa, RDC, Année 
-d’obtention : 2017. Mathématiques et informatique - UNIKIN (2017)</li>
-                <li>Gradué en Informatique, Université de Kinshasa, Kinshasa, RDC, Année 
-d’obtention : 2015. Mathématiques et informatique</li>
-                <li>Diplôme d’État / Électronique ITP Mwanda, Kinshasa, RDC, Année 
-d’obtention : 2010</li>
-            </ul>
-
+        <div>
+            <a href="contact.html">Nous Contacter</a> | 
+            <a href="about.html">A Propos</a>
         </div>
+    </footer>
 
-    </div>
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-</div>
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((elem) => {
+            observer.observe(elem);
+        });
+    </script>
 </body>
 </html>

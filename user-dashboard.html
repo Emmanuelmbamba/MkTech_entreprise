@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Espace - InnovaTech SARL</title>
+<link rel="stylesheet" href="global-design.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #1e293b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --glass: rgba(255,255,255,0.05);
+    --text: #ffffff;
+    --text-muted: #94a3b8;
+    --sidebar-width: 280px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(20px);
+    padding: 30px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    z-index: 1000;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-header img {
+    height: 45px;
+    border-radius: 8px;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.user-profile-section {
+    background: var(--glass);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.user-avatar-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+}
+
+.user-name-large {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.user-email {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.user-formation {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(37,99,235,0.2);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 8px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--text-muted);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: var(--primary);
+    color: var(--text);
+    transform: translateX(5px);
+}
+
+.sidebar-nav .material-icons {
+    font-size: 20px;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: var(--error);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.logout-btn:hover {
+    background: rgba(239,68,68,0.2);
+    transform: translateY(-2px);
+}
+
+/* MAIN CONTENT */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 30px;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+body.sidebar-collapsed .sidebar {
+    transform: translateX(-100%);
+}
+body.sidebar-collapsed .main-content {
+    margin-left: 0;
+}
+
+/* SIDEBAR TOGGLE ON DIVIDER */
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 50%;
+    left: calc(var(--sidebar-width) - 15px); /* Place exactly on border */
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1002;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.sidebar-toggle-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Adjust button direction when collapsed */
+body.sidebar-collapsed .sidebar-toggle-btn {
+    left: 15px; /* Keep it visible on the main edge */
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.welcome-text {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* WELCOME CARD */
+.welcome-card {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.welcome-subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.welcome-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    padding: 12px 24px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+/* PROGRESS SECTION */
+.progress-section {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-item {
+    margin-bottom: 25px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-title {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.progress-percentage {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* STATS GRID */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 24px;
+}
+
+.stat-icon.lessons {
+    background: rgba(37,99,235,0.2);
+    color: var(--primary);
+}
+
+.stat-icon.time {
+    background: rgba(16,185,129,0.2);
+    color: var(--success);
+}
+
+.stat-icon.certificate {
+    background: rgba(245,158,11,0.2);
+    color: var(--warning);
+}
+
+.stat-icon.grade {
+    background: rgba(139,92,246,0.2);
+    color: #8b5cf6;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* RECENT ACTIVITY */
+.activity-section {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.activity-list {
+    list-style: none;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.activity-list::-webkit-scrollbar {
+    width: 6px;
+}
+.activity-list::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+}
+.activity-list::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.activity-icon.lesson {
+    background: rgba(37,99,235,0.2);
+    color: var(--primary);
+}
+
+.activity-icon.assignment {
+    background: rgba(16,185,129,0.2);
+    color: var(--success);
+}
+
+.activity-icon.achievement {
+    background: rgba(245,158,11,0.2);
+    color: var(--warning);
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.activity-description {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.activity-time {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* CHART CONTAINER */
+.chart-container {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .welcome-actions {
+        justify-content: center;
+    }
+    
+    .welcome-title {
+        font-size: 24px;
+    }
+}
+
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--primary);
+    border: none;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+}
+
+/* Form styles for profile edit */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.btn-save {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37,99,235,0.3);
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU TOGGLE -->
+<button class="mobile-menu-toggle" id="mobileMenuToggle">
+    <span class="material-icons">menu</span>
+</button>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <img src="log1.jpeg" alt="InnovaTech">
+        <h2>Mon Espace</h2>
+        <button id="toggleProfileBtn" style="background:none; border:none; color:var(--text-muted); cursor:pointer; margin-left:auto;">
+            <span class="material-icons">expand_less</span>
+        </button>
+    </div>
+
+    <div class="user-profile-section" id="userProfileSection">
+        <div class="user-avatar-large" id="userAvatarLarge">U</div>
+        <div class="user-name-large" id="userNameLarge">Utilisateur</div>
+        <div class="user-email" id="userEmailLarge">user@email.com</div>
+        <div class="user-formation" id="userFormation">Développement Web</div>
+
+        <button class="logout-btn" id="logoutBtn">
+            <span class="material-icons">logout</span>
+            Déconnexion
+        </button>
+    </div>
+    
+    <nav>
+        <ul class="sidebar-nav">
+            <li><a href="#" class="active" data-page="dashboard">
+                <span class="material-icons">dashboard</span>
+                Dashboard
+            </a></li>
+            <li><a href="#" data-page="courses">
+                <span class="material-icons">school</span>
+                Mes formations
+            </a></li>
+            <li><a href="#" data-page="progress">
+                <span class="material-icons">trending_up</span>
+                Ma progression
+            </a></li>
+            <li><a href="#" data-page="profile">
+                <span class="material-icons">person</span>
+                Mon profil
+            </a></li>
+            <li><a href="#" data-page="certificates">
+                <span class="material-icons">workspace_premium</span>
+                Certificats
+            </a></li>
+        </ul>
+    </nav>
+    
+   
+</aside>
+
+<!-- TOGGLE BUTTON ON DIVIDER (Détaché pour éviter l'overflow) -->
+<button id="toggleSidebarMainBtn" class="sidebar-toggle-btn" title="Réduire/Agrandir le menu">
+    <span class="material-icons" id="sidebarToggleIcon">chevron_left</span>
+</button>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+    <!-- HEADER -->
+    <header class="header">
+        <div>
+            <h1>Bienvenue, <span id="headerUserName">Utilisateur</span> !</h1>
+            <div class="welcome-text">Voici votre tableau de bord d'apprentissage</div>
+        </div>
+    </header>
+
+    <!-- WELCOME CARD -->
+    <section class="welcome-card">
+        <div class="welcome-content">
+            <h2 class="welcome-title">Continuez votre apprentissage</h2>
+            <p class="welcome-subtitle">Vous avez fait des progrès impressionnants cette semaine !</p>
+            <div class="welcome-actions">
+                <a href="#" class="btn-primary" id="continueLearningBtn">
+                    <span class="material-icons">play_arrow</span>
+                    Continuer la leçon
+                </a>
+                <a href="#" class="btn-primary" id="viewCoursesBtn">
+                    <span class="material-icons">menu_book</span>
+                    Voir les formations
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS GRID -->
+    <section class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon lessons">
+                <span class="material-icons">check_circle</span>
+            </div>
+            <div class="stat-value">24</div>
+            <div class="stat-label">Leçons complétées</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon time">
+                <span class="material-icons">schedule</span>
+            </div>
+            <div class="stat-value">156h</div>
+            <div class="stat-label">Temps d'apprentissage</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon certificate">
+                <span class="material-icons">emoji_events</span>
+            </div>
+            <div class="stat-value">3</div>
+            <div class="stat-label">Certificats obtenus</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon grade">
+                <span class="material-icons">stars</span>
+            </div>
+            <div class="stat-value">85%</div>
+            <div class="stat-label">Score moyen</div>
+        </div>
+    </section>
+
+    <!-- PROGRESS SECTION -->
+    <section class="progress-section">
+        <h3 class="section-title">
+            <span class="material-icons">track_changes</span>
+            Progression des formations
+        </h3>
+        
+        <div class="progress-item">
+            <div class="progress-header">
+                <div class="progress-title">Développement Web & Applications</div>
+                <div class="progress-percentage">75%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+            </div>
+        </div>
+
+        <div class="progress-item">
+            <div class="progress-header">
+                <div class="progress-title">Base de Données</div>
+                <div class="progress-percentage">45%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%"></div>
+            </div>
+        </div>
+
+        <div class="progress-item">
+            <div class="progress-header">
+                <div class="progress-title">Cybersécurité</div>
+                <div class="progress-percentage">30%</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 30%"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHART -->
+    <section class="chart-container">
+        <div class="chart-header">
+            <h3 class="chart-title">Activité d'apprentissage</h3>
+        </div>
+        <div style="height: 180px; position: relative;">
+            <canvas id="activityChart"></canvas>
+        </div>
+    </section>
+
+    <!-- RECENT ACTIVITY -->
+    <section class="activity-section">
+        <h3 class="section-title">
+            <span class="material-icons">history</span>
+            Activité récente
+        </h3>
+        
+            <li class="activity-item">
+                <div class="activity-icon lesson">
+                    <span class="material-icons">play_lesson</span>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-title">Leçon complétée</div>
+                    <div class="activity-description">Introduction à JavaScript - Module 3</div>
+                    <div class="activity-time">Il y a 2 heures</div>
+                </div>
+            </li>
+
+            <li class="activity-item">
+                <div class="activity-icon assignment">
+                    <span class="material-icons">assignment</span>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-title">Devoir soumis</div>
+                    <div class="activity-description">Projet : Site web responsive</div>
+                    <div class="activity-time">Hier</div>
+                </div>
+            </li>
+
+            <li class="activity-item">
+                <div class="activity-icon achievement">
+                    <span class="material-icons">military_tech</span>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-title">Nouveau succès</div>
+                    <div class="activity-description">Badge "Débutant motivé" débloqué</div>
+                    <div class="activity-time">Il y a 3 jours</div>
+                </div>
+            </li>
+
+            <li class="activity-item">
+                <div class="activity-icon lesson">
+                    <span class="material-icons">play_lesson</span>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-title">Leçon complétée</div>
+                    <div class="activity-description">CSS Grid et Flexbox</div>
+                    <div class="activity-time">Il y a 5 jours</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- PROFILE EDIT SECTION (Hidden by default) -->
+    <section class="profile-section" id="profileSection" style="display: none;">
+        <div class="progress-section">
+            <h3 class="section-title">
+                <span class="material-icons">edit</span>
+                Modifier mon profil
+            </h3>
+            
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="editNom">Nom complet</label>
+                    <input type="text" id="editNom" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editEmail">Email</label>
+                    <input type="email" id="editEmail" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editTelephone">Téléphone</label>
+                    <input type="tel" id="editTelephone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editFormation">Formation</label>
+                    <select id="editFormation" class="form-control" required>
+                        <option value="dev-web">Développement Web & Applications</option>
+                        <option value="admin-reseau">Administration Réseau & Télécom</option>
+                        <option value="gestion-entreprises">Gestion des Entreprises Publiques</option>
+                        <option value="base-donnees">Base de Données</option>
+                        <option value="cybersecurite">Cybersécurité</option>
+                        <option value="maintenance">Maintenance Informatique</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-save">Enregistrer les modifications</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script>
+// Gestion de la session et authentification
+let currentUser = null;
+let users = [];
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', function() {
+    checkAuth();
+    loadUsers();
+    initChart();
+    updateUserInfo();
+});
+
+function checkAuth() {
+    const session = JSON.parse(localStorage.getItem('innovatech_session'));
+    if (!session || !session.user) {
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    currentUser = session.user;
+    if (currentUser.role === 'admin') {
+        window.location.href = 'admin-dashboard.html';
+        return;
+    }
+}
+
+function loadUsers() {
+    users = JSON.parse(localStorage.getItem('innovatech_users')) || [];
+}
+
+function updateUserInfo() {
+    const user = users.find(u => u.id === currentUser.id);
+    if (!user) return;
+    
+    // Update sidebar profile
+    document.getElementById('userAvatarLarge').textContent = user.nom.charAt(0).toUpperCase();
+    document.getElementById('userNameLarge').textContent = user.nom;
+    document.getElementById('userEmailLarge').textContent = user.email;
+    document.getElementById('userFormation').textContent = getFormationLabel(user.formation);
+    
+    // Update header
+    document.getElementById('headerUserName').textContent = user.nom.split(' ')[0];
+    
+    // Update profile form
+    document.getElementById('editNom').value = user.nom;
+    document.getElementById('editEmail').value = user.email;
+    document.getElementById('editTelephone').value = user.telephone;
+    document.getElementById('editFormation').value = user.formation;
+}
+
+function getFormationLabel(formation) {
+    const labels = {
+        'dev-web': 'Développement Web & Applications',
+        'admin-reseau': 'Administration Réseau & Télécom',
+        'gestion-entreprises': 'Gestion des Entreprises Publiques',
+        'base-donnees': 'Base de Données',
+        'cybersecurite': 'Cybersécurité',
+        'maintenance': 'Maintenance Informatique'
+    };
+    return labels[formation] || formation;
+}
+
+// Chart initialization
+function initChart() {
+    const ctx = document.getElementById('activityChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+            datasets: [{
+                label: 'Heures d\'étude',
+                data: [3, 5, 2, 6, 4, 7, 5],
+                borderColor: '#2563eb',
+                backgroundColor: 'rgba(37,99,235,0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: { color: '#ffffff' }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: 'rgba(255,255,255,0.05)' }
+                },
+                y: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: 'rgba(255,255,255,0.05)' }
+                }
+            }
+        }
+    });
+}
+
+// Navigation
+document.querySelectorAll('.sidebar-nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.sidebar-nav a').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        
+        const page = this.dataset.page;
+        
+        // Hide all sections
+        document.querySelector('.welcome-card').style.display = 'none';
+        document.querySelector('.stats-grid').style.display = 'none';
+        document.querySelector('.progress-section').style.display = 'none';
+        document.querySelector('.chart-container').style.display = 'none';
+        document.querySelector('.activity-section').style.display = 'none';
+        document.getElementById('profileSection').style.display = 'none';
+        
+        // Show relevant section
+        switch(page) {
+            case 'dashboard':
+                document.querySelector('.welcome-card').style.display = 'block';
+                document.querySelector('.stats-grid').style.display = 'grid';
+                document.querySelector('.progress-section').style.display = 'block';
+                document.querySelector('.chart-container').style.display = 'block';
+                document.querySelector('.activity-section').style.display = 'block';
+                break;
+            case 'profile':
+                document.getElementById('profileSection').style.display = 'block';
+                break;
+            default:
+                // For other pages, show dashboard content
+                document.querySelector('.welcome-card').style.display = 'block';
+                document.querySelector('.stats-grid').style.display = 'grid';
+                document.querySelector('.progress-section').style.display = 'block';
+                document.querySelector('.chart-container').style.display = 'block';
+                document.querySelector('.activity-section').style.display = 'block';
+        }
+    });
+});
+
+// Profile form submission
+document.getElementById('profileForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const userIndex = users.findIndex(u => u.id === currentUser.id);
+    if (userIndex === -1) return;
+    
+    // Update user data
+    users[userIndex] = {
+        ...users[userIndex],
+        nom: document.getElementById('editNom').value,
+        email: document.getElementById('editEmail').value,
+        telephone: document.getElementById('editTelephone').value,
+        formation: document.getElementById('editFormation').value
+    };
+    
+    // Update localStorage
+    localStorage.setItem('innovatech_users', JSON.stringify(users));
+    
+    // Update session
+    currentUser = users[userIndex];
+    localStorage.setItem('innovatech_session', JSON.stringify({
+        user: {
+            id: currentUser.id,
+            email: currentUser.email,
+            nom: currentUser.nom,
+            role: currentUser.role
+        },
+        loginAt: new Date().toISOString()
+    }));
+    
+    // Update UI
+    updateUserInfo();
+    
+    // Show success message (you could implement a toast notification here)
+    alert('Profil mis à jour avec succès !');
+    
+    // Navigate back to dashboard
+    document.querySelector('.sidebar-nav a[data-page="dashboard"]').click();
+});
+
+// Logout
+document.getElementById('logoutBtn').addEventListener('click', function() {
+    localStorage.removeItem('innovatech_session');
+    window.location.href = 'login.html';
+});
+
+// Mobile menu
+document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('active');
+});
+
+// Action buttons
+document.getElementById('continueLearningBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    // Here you would navigate to the current lesson
+    alert('Redirection vers la leçon en cours...');
+});
+
+document.getElementById('viewCoursesBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    // Here you would navigate to the courses page
+    document.querySelector('.sidebar-nav a[data-page="courses"]').click();
+});
+
+// Toggle Profile Section
+document.getElementById('toggleProfileBtn').addEventListener('click', function() {
+    const profileSection = document.getElementById('userProfileSection');
+    const icon = this.querySelector('.material-icons');
+    if (profileSection.style.display === 'none') {
+        profileSection.style.display = 'block';
+        icon.textContent = 'expand_less';
+    } else {
+        profileSection.style.display = 'none';
+        icon.textContent = 'expand_more';
+    }
+});
+
+// Toggle Sidebar Extérieur
+document.getElementById('toggleSidebarMainBtn').addEventListener('click', function() {
+    document.body.classList.toggle('sidebar-collapsed');
+    // Ne pas changer le texte de l'icône, on utilise rotate(180deg) via CSS
+});
+</script>
+
+</body>
+</html>

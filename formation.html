@@ -1,135 +1,200 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CPTech SARL</title>
-<link rel="stylesheet" href="styleMenuMobF.css">
-<link rel="stylesheet" href="styleformation.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaTech SARL - Formations</title>
+    <link rel="stylesheet" href="global-design.css">
+    <link rel="stylesheet" href="styleMenuMobF.css">
+    <style>
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .course-card {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            border-radius: 4px 0 0 4px;
+        }
+        .course-card h3 {
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+        .info-box {
+            background: var(--glass-bg);
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-top: 60px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-<div class="logo">
-    <a href="index.html">
-        <img src="logo_1CPtech.png" alt="Logo CPTech" height="60">
-    </a>
-    
-    <a href="index.html">
-       CPTech SARL
-    </a>
-    
-</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="solution.html">Solutions</a></li>
-        <li><a href="formation.html">Formations</a></li>
-        <li><a href="service.html">Services</a></li>
-        <li><a href="about.html">A Propos</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="#mycv.html">MyCV</a></li>
-    </ul>
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- NAVBAR FIXED -->
+    <nav id="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="log1.jpeg" alt="Logo InnovaTech">
+                InnovaTech SARL
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="solution.html">Solutions</a></li>
+            <li><a href="formation.html" class="active">Formations</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="about.html">A Propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" style="color: var(--accent); border: 1px solid var(--accent); padding: 5px 15px;">Connexion</a></li>
+        </ul>
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="page-container animate-on-scroll is-visible">
+        <section class="section-header">
+            <h1 class="section-title"><span class="text-gradient">Formez-vous aux</span> <span class="text-gradient-primary">Métiers du Numérique</span></h1>
+            <p class="section-subtitle">
+                Rejoignez le Centre Professionnel de Formation Informatique. InnovaTech accompagne les étudiants et professionnels dans l'acquisition de compétences tech hautement demandées.
+            </p>
+            <div style="margin-top: 30px;">
+                <a href="inscription.html" class="btn-primary">
+                    <span class="material-icons">school</span> S'inscrire à une formation
+                </a>
+            </div>
+        </section>
+
+        <!-- COURSES -->
+        <section style="margin-bottom: 80px;">
+            <h2 class="section-title" style="font-size: 2rem; text-align: center;">Nos Domaines de Formation</h2>
+            
+            <div class="courses">
+                <div class="glass-container course-card">
+                    <h3>Développement Web & Applications</h3>
+                    <p style="color: var(--text-muted);">
+                        Maîtrisez les technologies front-end et back-end : HTML, CSS, JavaScript, React, Node.js. 
+                        Créez des applications web professionnelles et responsives de A à Z.
+                    </p>
+                </div>
+
+                <div class="glass-container course-card">
+                    <h3>Administration Réseau & Télécom</h3>
+                    <p style="color: var(--text-muted);">
+                        Apprenez la configuration avancée de réseaux d'entreprise, la sécurité informatique, 
+                        l'environnement Cisco et l'administration des serveurs Linux/Windows.
+                    </p>
+                </div>
+
+                <div class="glass-container course-card">
+                    <h3>Gestion des Entreprises Publiques</h3>
+                    <p style="color: var(--text-muted);">
+                        Découvrez comment centraliser les systèmes fonctionnels et déployer des solutions 
+                        digitales spécialement conçues pour moderniser les administrations.
+                    </p>
+                </div>
+
+                <div class="glass-container course-card">
+                    <h3>Base de Données</h3>
+                    <p style="color: var(--text-muted);">
+                        Concevez, gérez et sécurisez des bases de données relationnelles et NoSQL. 
+                        Technologies : MySQL, PostgreSQL, SQL Server, MongoDB.
+                    </p>
+                </div>
+
+                <div class="glass-container course-card">
+                    <h3>Cybersécurité</h3>
+                    <p style="color: var(--text-muted);">
+                        Apprenez à protéger les systèmes d’information contre les menaces modernes, 
+                        réaliser des audits de sécurité et mettre en place des protocoles défensifs.
+                    </p>
+                </div>
+
+                <div class="glass-container course-card">
+                    <h3>Maintenance & Support IT</h3>
+                    <p style="color: var(--text-muted);">
+                        Techniques de diagnostic matériel et logiciel, réparation d'équipements, 
+                        et méthodes d'assistance technique professionnelle (Helpdesk).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT CENTRE -->
+        <section class="glass-container" style="text-align: center; margin-bottom: 80px;">
+            <h2 class="section-title" style="font-size: 2rem;">Le Centre de Formation</h2>
+            <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                Basé à Kinshasa et sous la direction de M. Emmanuel Mbamba, InnovaTech 
+                est spécialisé dans le développement accéléré des compétences numériques. 
+                Nos programmes allient théorie rigoureuse et forte pratique pour vous 
+                préparer directement aux défis des entreprises d'aujourd'hui.
+            </p>
+        </section>
+
     </div>
-</nav>
 
-<!-- CORPS -->
-<header>
-    <h1>CPTech SARL</h1>
-    <p>Centre Professionnel de Formation Informatique</p>
-    <p>Directeur : Emmanuel Mbamba | Kinshasa</p>
-</header>
-
-<section class="hero">
-    <h1>Formez-vous aux Métiers du Numérique</h1>
-    <p>CPTech accompagne les entreprises publiques et privées dans la modernisation digitale</p>
-    <a href="inscription.html"><button class="btn">S'inscrire à une formation</button></a>
-    
-</section>
-
-<section class="container">
-    <h2>Nos Domaines de Formation</h2>
-
-    <div class="courses">
-        <div class="card">
-            <h3>Développement Web & Applications</h3>
-            <p>HTML, CSS, JavaScript, React, Node.js, Applications Web professionnelles.</p>
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            &copy; 2026 InnovaTech SARL - Excellence Digitale Internationale.
         </div>
-
-        <div class="card">
-            <h3>Administration Réseau & Télécom</h3>
-            <p>Configuration réseau, Sécurité informatique, Cisco, Linux.</p>
+        <div>
+            <a href="contact.html">Nous Contacter</a> | 
+            <a href="about.html">A Propos</a>
         </div>
+    </footer>
 
-        <div class="card">
-            <h3>Gestion des Entreprises Publiques</h3>
-            <p>Centralisation des systèmes fonctionnels et solutions digitales pour administrations.</p>
-        </div>
+    <script>
+        // Navbar Scrolled Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-        <div class="card">
-            <h3>Base de Données</h3>
-            <p>MySQL, PostgreSQL, SQL Server, gestion et sécurisation des données.</p>
-        </div>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-        <div class="card">
-            <h3>Cybersécurité</h3>
-            <p>Protection des systèmes d’information et audit de sécurité.</p>
-        </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        <div class="card">
-            <h3>Maintenance & Support Informatique</h3>
-            <p>Diagnostic, réparation et assistance technique professionnelle.</p>
-        </div>
-    </div>
-</section>
-
-<section class="container">
-    <div class="about">
-        <h2>À propos de MKTech SARL</h2>
-        <p>
-            CPTech est un centre de formation basé à Kinshasa, spécialisé dans 
-            le développement des compétences numériques et la modernisation des 
-            systèmes d'information des entreprises publiques et privées.
-        </p>
-    </div>
-</section>
-
-<section class="container">
-    <div class="contact">
-        <h2>Contactez-nous</h2>
-        <p>Email : contact@mktech.cd</p>
-        <p>Téléphone : +243 997 300 932/ 818451340</p>
-        <p>Adresse : Kinshasa, République Démocratique du Congo</p>
-    </div>
-</section>
-
-<!-- FOOTER FIXE -->
-<footer>
-    <p>&copy; 2026 CPTech SARL- Excellence Digitale Internationale</p>
-</footer>
-<script src="javascrptMenus.js"></script>
-<script>
-
-/* Scroll effect */
-window.addEventListener("scroll", function(){
-    document.querySelector("nav")
-    .classList.toggle("scrolled", window.scrollY > 50);
-});
-
-/* Mobile toggle */
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
-});
-
-</script>
-
+        document.querySelectorAll('.animate-on-scroll').forEach((elem) => {
+            observer.observe(elem);
+        });
+    </script>
 </body>
 </html>
