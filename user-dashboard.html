@@ -1006,6 +1006,11 @@ function initChart() {
 // Navigation
 document.querySelectorAll('.sidebar-nav a').forEach(link => {
     link.addEventListener('click', function(e) {
+        if (this.dataset.page === 'home') {
+            window.location.href = 'index.html';
+            return;
+        }
+        
         e.preventDefault();
         document.querySelectorAll('.sidebar-nav a').forEach(l => l.classList.remove('active'));
         this.classList.add('active');
