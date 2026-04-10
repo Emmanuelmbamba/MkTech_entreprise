@@ -191,6 +191,21 @@
             margin-top: 20px;
             filter: grayscale(100%) invert(90%) contrast(1.2);
         }
+
+         .cards1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .card1 {
+            text-align: center;
+        }
+        .card1 h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -558,18 +573,18 @@
                 </p>
             </div>
 
-            <div class="cards">
+            <div class="cards1">
                 <div class="card">
                     <h3>Vision</h3>
                     <p style="color: var(--text-muted);">Devenir l'acteur majeur incontournable de la modernisation numérique au cœur de l'Afrique.</p>
                 </div>
 
-                <div class="card">
+                <div class="card1">
                     <h3>Valeurs</h3>
                     <p style="color: var(--text-muted);">Innovation continue, Excellence opérationnelle, Intégrité professionnelle et Performance technique.</p>
                 </div>
 
-                <div class="card">
+                <div class="card1">
                     <h3>Engagement</h3>
                     <p style="color: var(--text-muted);">Offrir des services fiables et conformes aux standards internationaux les plus stricts.</p>
                 </div>
