@@ -6,8 +6,8 @@
 .auth-container {
     width: 100%;
     max-width: 450px;
-    padding: 20px;
-    margin: 60px auto;
+    padding: clamp(15px, 4vw, 20px);
+    margin: clamp(40px, 8vw, 60px) auto;
 }
 
 .register-container {
@@ -16,17 +16,17 @@
 
 .logo-section {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: clamp(25px, 5vw, 40px);
 }
 
 .logo-section img {
-    height: 90px;
+    height: clamp(60px, 15vw, 90px);
     margin-bottom: 15px;
     border-radius: 10px;
 }
 
 .logo-section h1 {
-    font-size: 28px;
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
     font-family: 'Outfit', sans-serif;
     font-weight: 700;
     margin-bottom: 8px;
@@ -35,7 +35,7 @@
 
 .logo-section p {
     color: var(--text-muted);
-    font-size: 14px;
+    font-size: clamp(12px, 2vw, 14px);
 }
 
 .input-wrapper {
@@ -163,4 +163,36 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Responsive Media Queries */
+@media(max-width: 768px) {
+    .auth-container,
+    .register-container {
+        max-width: 90vw;
+    }
+    
+    .auth-link p {
+        font-size: clamp(12px, 2vw, 14px);
+    }
+}
+
+@media(max-width: 480px) {
+    .auth-container {
+        padding: 12px;
+        margin: 30px auto;
+    }
+    
+    .logo-section {
+        margin-bottom: 20px;
+    }
+    
+    .logo-section img {
+        height: 50px;
+    }
+    
+    .divider span {
+        font-size: 12px;
+        padding: 0 10px;
+    }
 }

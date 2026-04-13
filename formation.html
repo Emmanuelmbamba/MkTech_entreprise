@@ -5,45 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InnovaTech SARL - Formations</title>
     <link rel="stylesheet" href="global-design.css">
-    <link rel="stylesheet" href="styleMenuMobF.css">
-    <style>
-        .courses {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .course-card {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-            border-radius: 4px 0 0 4px;
-        }
-        .course-card h3 {
-            font-size: 1.4rem;
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-        .info-box {
-            background: var(--glass-bg);
-            padding: 40px;
-            border-radius: var(--radius);
-            margin-top: 60px;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
 
@@ -60,8 +21,6 @@
             <li><a href="solution.html">Solutions</a></li>
             <li><a href="formation.html" class="active">Formations</a></li>
             <li><a href="service.html">Services</a></li>
-            <li><a href="about.html">A Propos</a></li>
-            <li><a href="contact.html">Contact</a></li>
             <li><a href="login.html" style="color: var(--accent); border: 1px solid var(--accent); padding: 5px 15px;">Connexion</a></li>
         </ul>
         <div class="hamburger" id="hamburgerMenu">
