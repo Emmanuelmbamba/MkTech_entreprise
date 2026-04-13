@@ -42,8 +42,9 @@
         <div class="hero-content animate-on-scroll is-visible">
             <h1><span class="text-gradient">Transformation Digitale</span> <br><span
                     class="text-gradient-primary">Internationale</span></h1>
-            <p>InnovaTech accompagne les entreprises publiques et privées vers l'excellence technologique. Sécurité,
+            <p style="text-align: justify;">InnovaTech accompagne les entreprises publiques et privées vers l'excellence technologique. Sécurité,
                 développement, réseaux.</p>
+            <div class="menu">
             <a href="service.html" class="btn-primary">
                 <span class="material-icons">explore</span> Découvrir nos services
             </a>
@@ -51,6 +52,21 @@
                 Espace Client
             </a>
         </div>
+        <style>
+                .menu {
+                     display: flex;
+                     gap: 20px;
+                     justify-content: center;
+                    }
+
+                    /* Pour téléphone */
+                    @media (max-width: 600px) {
+                    .menu {
+                    flex-direction: column;
+                    gap: 25px;
+                        }
+                    }
+        </style>
     </section>
 
     <!-- SLIDER SECTION -->
@@ -143,7 +159,7 @@
                         <span class="material-icons">devices</span>
                     </div>
                     <h3>Développement Web & Applications</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;text-align: justify;">
                         Projets clés en main : création de portails web corporatifs,
                         plateformes e-commerce, et applications de gestion internes hautement sécurisées.
                     </p>
@@ -154,7 +170,7 @@
                         <span class="material-icons">assured_workload</span>
                     </div>
                     <h3>Gestion des Entreprises Publiques</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;text-align: justify;">
                         Logiciels sur-mesure pour la centralisation de l'administration,
                         la dématérialisation des procédures et l'amélioration de la transparence financière.
                     </p>
@@ -165,7 +181,7 @@
                         <span class="material-icons">hub</span>
                     </div>
                     <h3>Infrastructures & Télécoms</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;text-align: justify;">
                         Déploiement d'architectures réseaux résilientes, configuration de datacenters locaux,
                         et supervision constante via nos services NOC pour 0% de latence.
                     </p>
@@ -176,7 +192,7 @@
                         <span class="material-icons">security</span>
                     </div>
                     <h3>Sécurité & Data</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;text-align: justify;">
                         Solutions proactives contre les cyberattaques : pare-feux, gestion d'identités,
                         sauvegardes cloud encryptées et plans de reprise d'activité.
                     </p>
@@ -187,7 +203,7 @@
                         <span class="material-icons">model_training</span>
                     </div>
                     <h3>Formations Corporate</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;text-align: justify;">
                         Programmes d'acculturation technologique pour vos employés,
                         afin d'assurer une adoption rapide et efficace des nouveaux outils numériques.
                     </p>
@@ -198,7 +214,7 @@
                         <span class="material-icons">handyman</span>
                     </div>
                     <h3>Support IT Intégral</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;text-align: justify;">
                         Un centre de services technique dédié qui assure le maintien en condition
                         opérationnelle de l'ensemble de votre parc informatique et logiciel quotidien.
                     </p>
@@ -224,7 +240,7 @@
         <section class="section-header">
             <h1 class="section-title"><span class="text-gradient">Formez-vous aux</span> <span
                     class="text-gradient-primary">Métiers du Numérique</span></h1>
-            <p class="section-subtitle">
+            <p class="section-subtitle" style="text-align: justify;">
                 Rejoignez le Centre Professionnel de Formation Informatique. InnovaTech accompagne les étudiants et
                 professionnels dans l'acquisition de compétences tech hautement demandées.
             </p>
@@ -406,24 +422,37 @@
                         </div>
                     </div>
                 </section>
-
-                <section class="glass-container director">
-                    <img src="profile.jpg" alt="Ir Emmanuel Mbamba" class="director-img">
-                    <div class="director-content">
-                        <h2 style="font-size: 2rem; margin-bottom: 10px;">Le Mot de l'Ingénieur</h2>
-                        <h4 style="color: var(--accent); margin-bottom: 20px;">M. Emmanuel Mbamba</h4>
-                        <p style="color: var(--text-muted);text-align: justify; font-size: 1.1rem; line-height: 1.8;">
-                            " La révolution numérique n'atteindra son plein potentiel que si elle est accompagnée par
-                            des expertises solides.
-                            Chez InnovaTech, nous nous engageons à développer les compétences locales et à proposer des
-                            infrastructures critiques adaptées
-                            aux réalités du terrain tout en garantissant des niveaux de sécurité internationaux. "
-                        </p>
-                        <div style="margin-top: 20px;">
-                            <a href="mycv.html" class="btn-glass">Découvrez mon parcours professionnel</a>
-                        </div>
-                    </div>
-                </section>
+<h2 style="font-size: 2rem; margin-bottom: 10px;">Les mots de nos Experts et Formateurs</h2>
+        <section class="glass-container director">
+            <img src="profile.jpg" alt="Ir Emmanuel Mbamba" class="director-img">
+            <div class="director-content">
+                
+                <h4 style="color: var(--accent); margin-bottom: 20px;">M. Emmanuel Mbamba</h4>
+                <p style="color: var(--text-muted); text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+                    " La révolution numérique n'atteindra son plein potentiel que si elle est accompagnée par des expertises solides. 
+                    Chez InnovaTech, nous nous engageons à développer les compétences locales et à proposer des infrastructures critiques adaptées 
+                    aux réalités du terrain tout en garantissant des niveaux de sécurité internationaux. "
+                </p>
+               <!-- <div style="margin-top: 20px;">
+                    <a href="mycv.html" class="btn-glass">Découvrez mon parcours professionnel</a>
+                </div>-->
+            </div>
+        </section>  
+         <section class="glass-container director">
+            <img src="Profiles1.jpeg" alt="Ir Emmanuel Mbamba" class="director-img">
+            <div class="director-content">
+                
+                <h4 style="color: var(--accent); margin-bottom: 20px;">M. Horeb Ntondele</h4>
+                <p style="color: var(--text-muted); text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+                    " La révolution numérique n'atteindra son plein potentiel que si elle est accompagnée par des expertises solides. 
+                    Chez InnovaTech, nous nous engageons à développer les compétences locales et à proposer des infrastructures critiques adaptées 
+                    aux réalités du terrain tout en garantissant des niveaux de sécurité internationaux. "
+                </p>
+               <!-- <div style="margin-top: 20px;">
+                    <a href="mycv.html" class="btn-glass">Découvrez mon parcours professionnel</a>
+                </div>-->
+            </div>
+        </section>  
 
             <!-- CTA -->
             <section class="section-header" style="margin-bottom: 40px;">
